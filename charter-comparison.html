@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>60th Birthday Charter Comparison — Corey &amp; Tina</title>
+<style>
+  :root{
+    --navy:#0e2a36;
+    --navy-deep:#081a22;
+    --teal:#2c7873;
+    --sand:#efe6d3;
+    --sand-light:#faf6ec;
+    --coral:#e0723c;
+    --ink:#1c2b30;
+    --muted:#5c6e73;
+    --line:#d8cfb8;
+    --unknown:#b4534a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Public Sans","Segoe UI",Arial,sans-serif;
+    background:var(--sand-light);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  header.hero{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);
+    color:var(--sand-light);
+    padding:56px 24px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:280px;height:280px;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:50%;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute;
+    right:20px; top:20px;
+    width:180px;height:180px;
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:50%;
+  }
+  .hero-inner{max-width:1020px;margin:0 auto;position:relative;z-index:1;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:12px;
+    color:var(--coral);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:"Fraunces","Georgia",serif;
+    font-size:clamp(28px,4vw,44px);
+    margin:0 0 12px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .hero-sub{
+    max-width:640px;
+    color:#c8d6d8;
+    font-size:15.5px;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 28px;
+    margin-top:24px;
+    font-size:13px;
+    color:#a9bcbf;
+  }
+  .hero-meta strong{color:var(--sand-light);font-weight:600;}
+
+  main{max-width:1020px;margin:0 auto;padding:0 24px 80px;}
+
+  section.block{margin-top:44px;}
+  h2.section-title{
+    font-family:"Fraunces","Georgia",serif;
+    font-size:24px;
+    font-weight:600;
+    margin:0 0 6px;
+    color:var(--navy);
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  h2.section-title .tag{
+    font-family:"Public Sans",sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    background:var(--teal);
+    color:white;
+    padding:3px 8px;
+    border-radius:3px;
+    font-weight:700;
+  }
+  p.section-note{color:var(--muted);font-size:14px;margin:0 0 20px;max-width:760px;}
+
+  /* Flights */
+  .flights-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:white;}
+  table.flights{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    min-width:760px;
+  }
+  table.flights th{
+    background:var(--navy);
+    color:var(--sand-light);
+    text-align:left;
+    padding:10px 14px;
+    font-weight:600;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+  }
+  table.flights td{
+    padding:11px 14px;
+    border-top:1px solid var(--line);
+    vertical-align:top;
+  }
+  table.flights tbody tr:nth-child(even){background:#f7f2e6;}
+  table.flights td.route{font-weight:700;color:var(--navy);white-space:nowrap;}
+  table.flights td.fare{font-weight:700;}
+  table.flights td.couple{color:var(--coral);font-weight:700;}
+  table.flights td.airline{color:var(--muted);}
+
+  /* Matrix */
+  .matrix-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:white;}
+  table.matrix{width:100%;border-collapse:collapse;font-size:13.5px;min-width:800px;}
+  table.matrix th, table.matrix td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.matrix thead th{
+    background:var(--navy);
+    color:var(--sand-light);
+    text-transform:uppercase;
+    font-size:11px;
+    letter-spacing:.06em;
+    text-align:left;
+    position:sticky;top:0;
+  }
+  table.matrix tbody tr:nth-child(even){background:#f7f2e6;}
+  table.matrix td.loc{font-weight:700;color:var(--navy);white-space:nowrap;}
+  .cell-price{font-weight:700;color:var(--ink);}
+  .cell-couple{font-size:12px;color:var(--coral);font-weight:700;display:block;margin-top:1px;}
+  .cell-boat{font-size:12.5px;color:var(--muted);display:block;margin-top:2px;}
+  .cell-none{color:#9a9088;font-style:italic;}
+  .cell-unknown{color:var(--unknown);font-style:italic;}
+  .badge{
+    display:inline-block;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    padding:2px 6px;
+    border-radius:3px;
+    margin-left:6px;
+    font-weight:700;
+  }
+  .badge.company-vagabonde{background:#dcebe2;color:#2b6e4f;}
+  .badge.company-moorings{background:#dbe6ee;color:#26536f;}
+
+  /* Collapsibles */
+  details.loc-group{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:8px;
+    margin-bottom:14px;
+    overflow:hidden;
+  }
+  details.loc-group>summary{
+    padding:16px 20px;
+    cursor:pointer;
+    font-family:"Fraunces",serif;
+    font-size:18px;
+    font-weight:600;
+    color:var(--navy);
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:var(--sand);
+  }
+  details.loc-group>summary::-webkit-details-marker{display:none;}
+  details.loc-group>summary::after{
+    content:"+";
+    font-size:20px;
+    color:var(--coral);
+    font-weight:700;
+  }
+  details.loc-group[open]>summary::after{content:"–";}
+  .loc-summary-meta{font-family:"Public Sans",sans-serif;font-size:12px;color:var(--muted);font-weight:500;}
+  .loc-body{padding:18px 20px 20px;}
+
+  details.date-group{
+    border:1px solid var(--line);
+    border-radius:6px;
+    margin-bottom:10px;
+  }
+  details.date-group>summary{
+    padding:10px 14px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:13.5px;
+    color:var(--teal);
+    background:#f2ede0;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+  }
+  details.date-group>summary::-webkit-details-marker{display:none;}
+  details.date-group>summary::after{content:"▸";color:var(--coral);}
+  details.date-group[open]>summary::after{content:"▾";}
+  .date-body{padding:14px 16px;}
+
+  .quote-card{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:14px 16px;
+    margin-bottom:12px;
+    background:#fffdf8;
+  }
+  .quote-card:last-child{margin-bottom:0;}
+  .quote-head{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:8px;
+    margin-bottom:8px;
+  }
+  .quote-head h4{margin:0;font-size:15.5px;color:var(--navy);}
+  .quote-totals{text-align:right;}
+  .quote-total{font-weight:800;font-size:16px;color:var(--coral);display:block;}
+  .quote-couple{font-weight:700;font-size:12.5px;color:var(--teal);display:block;margin-top:2px;}
+  .quote-meta{font-size:12px;color:var(--muted);margin-bottom:10px;}
+  table.lineitems{width:100%;border-collapse:collapse;font-size:13px;}
+  table.lineitems td{padding:4px 0;border-top:1px dashed var(--line);}
+  table.lineitems td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  table.lineitems tr:first-child td{border-top:none;}
+  .charter-type-pill{
+    display:inline-block;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    padding:2px 7px;
+    border-radius:10px;
+    font-weight:700;
+    margin-left:8px;
+  }
+  .pill-bareboat{background:#eee2c9;color:#7a5b1a;}
+  .pill-skipper{background:#dbe6ee;color:#26536f;}
+  .pill-crew{background:#dcebe2;color:#2b6e4f;}
+  .pill-taxi{background:#f0e0dc;color:#8c3f2f;}
+
+  .note-box{
+    background:#f2ede0;
+    border-left:3px solid var(--coral);
+    padding:10px 14px;
+    font-size:13px;
+    color:var(--ink);
+    border-radius:0 4px 4px 0;
+    margin-top:10px;
+  }
+  .note-box.warn{border-left-color:var(--unknown);background:#f5e9e6;}
+
+  /* FAQ */
+  details.faq{
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+  }
+  details.faq summary{
+    cursor:pointer;
+    font-weight:700;
+    font-size:14.5px;
+    color:var(--navy);
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+  }
+  details.faq summary::-webkit-details-marker{display:none;}
+  details.faq summary::after{content:"+";color:var(--coral);font-size:18px;flex-shrink:0;}
+  details.faq[open] summary::after{content:"–";}
+  details.faq .faq-a{margin-top:8px;font-size:13.5px;color:var(--ink);max-width:760px;}
+  details.faq .faq-a .src{color:var(--muted);font-size:12px;display:block;margin-top:4px;}
+
+  footer{
+    max-width:1020px;margin:0 auto;padding:20px 24px 60px;
+    color:var(--muted);font-size:12px;
+    border-top:1px solid var(--line);
+  }
+  .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--muted);margin:10px 0 18px;}
+  .legend span{display:flex;align-items:center;gap:6px;}
+  .swatch{width:10px;height:10px;border-radius:2px;display:inline-block;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Charter Planning — Working Draft</div>
+    <h1>Two 60th Birthdays, One Sailing Trip</h1>
+    <p class="hero-sub">A side-by-side of every quote collected so far for Corey &amp; Tina's group — 3 couples, 6 guests, sailing out of Hingham Shipyard Marina, MA — across Abaco, the BVI, the USVI, Grenada, and St. Lucia.</p>
+    <div class="hero-meta">
+      <span><strong>Group:</strong> 6 guests, 3 couples</span>
+      <span><strong>Home port:</strong> Boston, MA (Hingham Shipyard Marina)</span>
+      <span><strong>Occasion:</strong> Two 60th birthdays</span>
+      <span><strong>Target dates:</strong> Jan 22/23, 2027 or Apr 24 – May 1, 2027</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- FLIGHTS -->
+  <section class="block" id="flights">
+    <h2 class="section-title">Flights</h2>
+    <p class="section-note">Round-trip fares as gathered. "Per couple" = fare × 2. Airport codes: GND = Grenada, UVF = St. Lucia (Hewanorra), STT = St. Thomas, USVI, EIS = Beef Island/Tortola, BVI, MHH = Marsh Harbour, Abaco. JetBlue fares are priced with Extra Space; American fares are priced with Main Plus — the easiest way on each airline to get a fare that includes seat selection and a checked bag.</p>
+    <div class="flights-wrap">
+      <table class="flights">
+        <thead>
+          <tr><th>Route</th><th>Charter Location</th><th>Travel Window</th><th>Fare (per person, RT)</th><th>Per Couple</th><th>Airline</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="route">BOS ⇄ GND</td><td>Grenada</td><td>1/23/27 – 1/30/27</td><td class="fare">$904</td><td class="couple">$1,808</td><td class="airline">JetBlue</td></tr>
+          <tr><td class="route">BOS ⇄ GND</td><td>Grenada</td><td>4/24/27 – 4/30/27</td><td class="fare">$1,708</td><td class="couple">$3,416</td><td class="airline">JetBlue</td></tr>
+          <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>1/23/27 – 1/30/27</td><td class="fare">$1,756</td><td class="couple">$3,512</td><td class="airline">JetBlue</td></tr>
+          <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>4/24/27 – 5/1/27</td><td class="fare">$3,248</td><td class="couple">$6,496</td><td class="airline">JetBlue</td></tr>
+          <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>1/23/27 – 1/30/27</td><td class="fare">$706</td><td class="couple">$1,412</td><td class="airline">American</td></tr>
+          <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>4/24/27 – 4/30/27</td><td class="fare">$991</td><td class="couple">$1,982</td><td class="airline">American</td></tr>
+          <tr><td class="route">BOS ⇄ EIS</td><td>BVI (Tortola)</td><td>1/23/27 – 1/30/27</td><td class="fare">$1,392</td><td class="couple">$2,784</td><td class="airline">American</td></tr>
+          <tr><td class="route">BOS ⇄ EIS</td><td>BVI (Tortola)</td><td>4/24/27 – 4/30/27</td><td class="fare">$1,657</td><td class="couple">$3,314</td><td class="airline">American</td></tr>
+          <tr><td class="route">BOS ⇄ STT</td><td>USVI / BVI (via St. Thomas)</td><td>1/23/27 – 1/30/27</td><td class="fare">$934</td><td class="couple">$1,868</td><td class="airline">JetBlue</td></tr>
+          <tr><td class="route">BOS ⇄ STT</td><td>USVI / BVI (via St. Thomas)</td><td>4/24/27 – 5/1/27</td><td class="fare">$1,033</td><td class="couple">$2,066</td><td class="airline">JetBlue</td></tr>
+          <tr><td class="route">BOS ⇄ MHH</td><td>Abaco</td><td>1/22/27 – 1/30/27</td><td class="fare">$943</td><td class="couple">$1,886</td><td class="airline">American</td></tr>
+          <tr><td class="route">BOS ⇄ MHH</td><td>Abaco</td><td>4/24/27 – 4/30/27</td><td class="fare">$1,100</td><td class="couple">$2,200</td><td class="airline">American</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box" style="margin-top:12px;">BVI can be reached either directly via BOS ⇄ EIS (Beef Island/Tortola, American) or via BOS ⇄ STT (JetBlue) plus the Chillout Charters water taxi/ferry connection from St. Thomas — see the BVI section below for that transfer cost.</div>
+  </section>
+
+  <!-- MATRIX -->
+  <section class="block" id="matrix">
+    <h2 class="section-title">Charter Matrix</h2>
+    <p class="section-note">Lowest total quoted price per charter style, per location, from the documents reviewed so far, with cost per couple (total ÷ 3) shown underneath. "Not offered" means the operator doesn't sell that style at this location; "No quote yet" means we haven't received pricing for it.</p>
+    <div class="legend">
+      <span><span class="swatch" style="background:#dcebe2"></span> Vagabonde Adventures</span>
+      <span><span class="swatch" style="background:#dbe6ee"></span> The Moorings</span>
+      <span><span class="swatch" style="background:#f0e0dc"></span> Cruise Abaco</span>
+    </div>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Bareboat (self-skippered)</th>
+            <th>Bareboat + Skipper</th>
+            <th>Full Crew</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="loc">Abaco, Bahamas</td>
+            <td><span class="cell-none">Not offered</span></td>
+            <td><span class="cell-price">$10,358.09</span><span class="cell-couple">$3,452.70 / couple</span><span class="cell-boat">Fountaine Pajot Astrea 42, day skipper <span class="badge" style="background:#f0e0dc;color:#8c3f2f;">Cruise Abaco</span> · next: Bali 4.6 $13,103 (Vagabonde)</span></td>
+            <td><span class="cell-price">$28,443</span><span class="cell-couple">$9,481.00 / couple</span><span class="cell-boat">Outremer 52 'Sophia', all-inclusive <span class="badge company-vagabonde">Vagabonde</span></span></td>
+          </tr>
+          <tr>
+            <td class="loc">BVI (Tortola)</td>
+            <td><span class="cell-price">$11,953.54</span><span class="cell-couple">$3,984.51 / couple</span><span class="cell-boat">Moorings 464-Exclusive (power cat) <span class="badge company-moorings">Moorings</span> — Quote TA0580</span></td>
+            <td><span class="cell-price">$13,701.96</span><span class="cell-couple">$4,567.32 / couple</span><span class="cell-boat">Moorings 4500L Club (sailing cat) <span class="badge company-moorings">Moorings</span> — Quote TA0576</span></td>
+            <td><span class="cell-price">$16,716.34</span><span class="cell-couple">$5,572.11 / couple</span><span class="cell-boat">Moorings Crewed 4500L <span class="badge company-moorings">Moorings</span> — Quote TA0581</span></td>
+          </tr>
+          <tr>
+            <td class="loc">USVI (St. Thomas / St. John)</td>
+            <td><span class="cell-none">Not offered</span></td>
+            <td><span class="cell-price">$17,000</span><span class="cell-couple">$5,666.67 / couple</span><span class="cell-boat">Mah Na Mah Na, all-inclusive <span class="badge company-vagabonde">Vagabonde</span></span></td>
+            <td><span class="cell-unknown">No quote yet</span></td>
+          </tr>
+          <tr>
+            <td class="loc">Grenada</td>
+            <td><span class="cell-unknown">No quote yet</span></td>
+            <td><span class="cell-price">$16,237.80</span><span class="cell-couple">$5,412.60 / couple</span><span class="cell-boat">Moorings 4500L Club, 6 nights <span class="badge company-moorings">Moorings</span> — Quote SZ5932</span></td>
+            <td><span class="cell-none">Not available</span><span class="cell-boat">Confirmed no full-crew availability</span></td>
+          </tr>
+          <tr>
+            <td class="loc">St. Lucia</td>
+            <td><span class="cell-unknown">No quote yet</span></td>
+            <td><span class="cell-price">$17,507.88</span><span class="cell-couple">$5,835.96 / couple</span><span class="cell-boat">TM 5000 4-Cabin Club, 6 nights <span class="badge company-moorings">Moorings</span> — Quote SZ5984</span></td>
+            <td><span class="cell-none">Not available</span><span class="cell-boat">Confirmed no full-crew availability</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box warn" style="margin-top:12px;">Grenada (SZ5932) and St. Lucia (SZ5984) each came through as a single 6-night bareboat-with-skipper quote for Jan 29 – Feb 4, 2027. Only one quote per destination was in the files reviewed — if there's a separate 5-night or 7-night version, it hasn't come through yet and isn't reflected here.</div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="block" id="details">
+    <h2 class="section-title">Quote Details by Location</h2>
+    <p class="section-note">Expand a location, then a date, to see each quote as given by the charter company. Cost per couple = total ÷ 3.</p>
+
+    <!-- ABACO -->
+    <details class="loc-group">
+      <summary>Abaco, Bahamas <span class="loc-summary-meta">Vagabonde Adventures &amp; Cruise Abaco — no self-skippered bareboat option</span></summary>
+      <div class="loc-body">
+
+        <details class="date-group">
+          <summary>Jan 23, 2027 (1 week) <span>Vagabonde Adventures</span></summary>
+          <div class="date-body">
+            <p class="section-note" style="margin-bottom:10px;">Same yacht options as the April 24–May 1 dates below; both weeks were confirmed open at time of quoting. Full proposal is pending Corey &amp; Tina sharing a budget. Note the flight quote for MHH uses 1/22/27, one day earlier than this charter date.</p>
+          </div>
+        </details>
+
+        <details class="date-group" open>
+          <summary>Apr 24 – May 1, 2027 (1 week) <span>Vagabonde Adventures</span></summary>
+          <div class="date-body">
+
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Outremer 52 "Sophia" <span class="charter-type-pill pill-crew">Full Crew</span></h4>
+                <div class="quote-totals"><span class="quote-total">$28,443</span><span class="quote-couple">$9,481.00 / couple</span></div>
+              </div>
+              <div class="quote-meta">All-inclusive charter · Guest cabins/max guests: UNKNOWN</div>
+              <table class="lineitems">
+                <tr><td>Yacht</td><td>$24,950</td></tr>
+                <tr><td>Taxes and fees</td><td>$3,493</td></tr>
+                <tr><td>Captain fee</td><td>Included</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>$28,443</strong></td></tr>
+              </table>
+              <div class="note-box">Includes captain, fuel, power, water, dockage, and provisions for 6 breakfasts, 6 lunches, and 2 dinners onboard. Group food/beverage beyond that is separate.</div>
+            </div>
+
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Bali 4.6 <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
+                <div class="quote-totals"><span class="quote-total">$13,103</span><span class="quote-couple">$4,367.67 / couple</span></div>
+              </div>
+              <div class="quote-meta">Guest cabins: 3 · Crew cabin: 1 · Max guests: 6 · Partner boat staffed with Vagabonde's captains</div>
+              <table class="lineitems">
+                <tr><td>Yacht</td><td>$8,950</td></tr>
+                <tr><td>Taxes and fees</td><td>$1,603</td></tr>
+                <tr><td>Captain fee</td><td>$2,550</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>$13,103</strong></td></tr>
+              </table>
+            </div>
+
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Fountaine Pajot Tanna 4 <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
+                <div class="quote-totals"><span class="quote-total">$13,901</span><span class="quote-couple">$4,633.67 / couple</span></div>
+              </div>
+              <div class="quote-meta">Guest cabins: 4 · Crew cabin: 1 · Max guests: 8 · Partner boat staffed with Vagabonde's captains</div>
+              <table class="lineitems">
+                <tr><td>Yacht</td><td>$9,650</td></tr>
+                <tr><td>Taxes and fees</td><td>$1,701</td></tr>
+                <tr><td>Captain fee</td><td>$2,550</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>$13,901</strong></td></tr>
+              </table>
+            </div>
+
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Bali 4.8 <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
+                <div class="quote-totals"><span class="quote-total">$16,523</span><span class="quote-couple">$5,507.67 / couple</span></div>
+              </div>
+              <div class="quote-meta">Guest cabins: 4 · Crew cabin: 1 · Max guests: 8 · Partner boat staffed with Vagabonde's captains</div>
+              <table class="lineitems">
+                <tr><td>Yacht</td><td>$11,950</td></tr>
+                <tr><td>Taxes and fees</td><td>$2,023</td></tr>
+                <tr><td>Captain fee</td><td>$2,550</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>$16,523</strong></td></tr>
+              </table>
+            </div>
+
+            <div class="note-box">Not included on any of the three partner boats above: food, fuel, mooring fees. An optional chef is available for $2,550/week (Vagabonde recommends booking the full week rather than a night or two, since it's "all or nothing" cost-wise).</div>
+          </div>
+        </details>
+
+        <details class="date-group">
+          <summary>Jan 24–29, 2027 charter (5 nights); sleep-aboard extends to Jan 23–30 <span>Cruise Abaco — Offer #582</span></summary>
+          <div class="date-body">
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Fountaine Pajot Astrea 42 "Maestro – Wayfinder" (2023) <span class="charter-type-pill pill-skipper">Bareboat + Day Skipper</span></h4>
+                <div class="quote-totals"><span class="quote-total">$10,358.09</span><span class="quote-couple">$3,452.70 / couple</span></div>
+              </div>
+              <div class="quote-meta">Offer #582 · Quoted 17-Jun-26 · Check-in 24-Jan-27 12:00 · Check-out 29-Jan-27 11:59 · Berths: 6 · Cabins: 3 · WC: 3 · Max pax: 6 · Boat Harbour Marina, Abaco</div>
+              <table class="lineitems">
+                <tr><td>Charter price</td><td>$6,332.50</td></tr>
+                <tr><td>Discount (5%)</td><td>–$316.63</td></tr>
+                <tr><td><em>Charter fee total</em></td><td><em>$6,015.87</em></td></tr>
+                <tr><td>Bahamas Taxes (10%)</td><td>$601.59</td></tr>
+                <tr><td>DRA fee</td><td>$350.00</td></tr>
+                <tr><td>Bahamas foreign charter tax (4%)</td><td>$240.63</td></tr>
+                <tr><td>Captain By Day</td><td>$1,750.00</td></tr>
+                <tr><td>Sleep over before check-in</td><td>$700.00</td></tr>
+                <tr><td>Sleep over after check-out</td><td>$700.00</td></tr>
+                <tr><td><strong>Grand Total</strong></td><td><strong>$10,358.09</strong></td></tr>
+              </table>
+              <div class="note-box">Security deposit of $4,000 is separate from the grand total (refundable, not a charter cost). This offer bundles a "Captain By Day" ($1,750) rather than a live-aboard skipper — worth confirming with Cruise Abaco exactly which hours/days the captain covers. With both sleep-aboard extras selected, the boat is available from 1/23 at noon through 1/30 at 11:59am — 7 nights total, aligning with the BOS ⇄ MHH 1/22–1/30 flight window. Fuel ($300), a chef ($400), gratuity ($220), and a hostess/cook ($350) are priced as available extras but not included in this total.</div>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </details>
+
+    <!-- BVI -->
+    <details class="loc-group" open>
+      <summary>British Virgin Islands (Tortola) <span class="loc-summary-meta">The Moorings — all three charter styles quoted</span></summary>
+      <div class="loc-body">
+
+        <div class="note-box">Flying into STT (St. Thomas) does not land you at the charter base — a ferry or private water taxi across to Road Town, Tortola is required to reach the boat. Flying directly into EIS (Beef Island/Tortola) skips that extra leg. See the Chillout Charters water taxi quote below for pricing if routing through STT.</div>
+
+        <details class="date-group" open>
+          <summary>Apr 24–30, 2027 <span>The Moorings — Quote TA0576</span></summary>
+          <div class="date-body">
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Moorings 4500L – Club Class (3+ yrs) <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
+                <div class="quote-totals"><span class="quote-total">$13,701.96</span><span class="quote-couple">$4,567.32 / couple</span></div>
+              </div>
+              <div class="quote-meta">Quote ID TA0576 · Quoted 29-Jul-26 · Boarding 24-Apr-27 18:00 · Ends 30-Apr-27 11:00 · 6 in party · Road Town, Tortola</div>
+              <table class="lineitems">
+                <tr><td>Moorings 4500L – Club (3+ y/o)</td><td>$8,749.00</td></tr>
+                <tr><td>Travel Protection Plan</td><td>$1,014.96</td></tr>
+                <tr><td>Yacht Damage Waiver</td><td>$725.00</td></tr>
+                <tr><td>VISAR Fee</td><td>$12.00</td></tr>
+                <tr><td>BVI Cruising Permit Fee</td><td>$144.00</td></tr>
+                <tr><td>Skipper</td><td>$1,650.00</td></tr>
+                <tr><td>Provisions – Skipper</td><td>$175.00</td></tr>
+                <tr><td>Wi-Fi</td><td>$185.00</td></tr>
+                <tr><td>Blue Marine Foundation</td><td>$12.00</td></tr>
+                <tr><td>BVI National Parks Permit</td><td>$35.00</td></tr>
+                <tr><td>Sleep Aboard</td><td>$1,200.88</td></tr>
+                <tr><td>Sleep Aboard Promotion</td><td>–$200.88</td></tr>
+                <tr><td><strong>Total Quote Amount</strong></td><td><strong>$13,701.96</strong></td></tr>
+              </table>
+              <div class="note-box">This is the "Classic Class" yacht (3+ yrs old), so Wi-Fi is an add-on rather than included — it's billed here as its own line item. No early-booking offer appears on this quote. Skipper's own provisions are included; the group's food/beverage is separate and at your own expense.</div>
+            </div>
+          </div>
+        </details>
+
+        <details class="date-group">
+          <summary>Apr 25–30, 2027 <span>The Moorings — Quote TA0580</span></summary>
+          <div class="date-body">
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Moorings 464-Exclusive (1–3 yrs, power cat) <span class="charter-type-pill pill-bareboat">Bareboat</span></h4>
+                <div class="quote-totals"><span class="quote-total">$11,953.54</span><span class="quote-couple">$3,984.51 / couple</span></div>
+              </div>
+              <div class="quote-meta">Quote ID TA0580 · Quoted 28-Jul-26 · Boarding 25-Apr-27 12:00 · Ends 30-Apr-27 10:00 · 6 in party · Road Town, Tortola</div>
+              <table class="lineitems">
+                <tr><td>Moorings 464-Exclusive (1–3 y/o)</td><td>$10,499.00</td></tr>
+                <tr><td>Early Booking Offer</td><td>–$1,049.90</td></tr>
+                <tr><td>Yacht Damage Waiver</td><td>$725.00</td></tr>
+                <tr><td>VISAR Fee</td><td>$12.00</td></tr>
+                <tr><td>Travel Protection Plan</td><td>$885.44</td></tr>
+                <tr><td>BVI Cruising Permit Fee</td><td>$120.00</td></tr>
+                <tr><td>Fuel – Power Cat 46ft</td><td>$715.00</td></tr>
+                <tr><td>Blue Marine Foundation</td><td>$12.00</td></tr>
+                <tr><td>BVI National Parks Permit</td><td>$35.00</td></tr>
+                <tr><td><strong>Total Quote Amount</strong></td><td><strong>$11,953.54</strong></td></tr>
+              </table>
+              <div class="note-box">"Exclusive Class" yacht (1–3 yrs old) — Wi-Fi is included at no extra charge (no separate Wi-Fi line on this quote).</div>
+            </div>
+          </div>
+        </details>
+
+        <details class="date-group">
+          <summary>Apr 25–30, 2027 <span>The Moorings — Quote TA0581</span></summary>
+          <div class="date-body">
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Moorings Crewed 4500L <span class="charter-type-pill pill-crew">Full Crew</span></h4>
+                <div class="quote-totals"><span class="quote-total">$16,716.34</span><span class="quote-couple">$5,572.11 / couple</span></div>
+              </div>
+              <div class="quote-meta">Quote ID TA0581 · Quoted 28-Jul-26 · Boarding 25-Apr-27 12:00 · Ends 30-Apr-27 12:00 · 6 in party · Road Town, Tortola</div>
+              <table class="lineitems">
+                <tr><td>Moorings Crewed 4500L</td><td>$16,999.00</td></tr>
+                <tr><td>Early Booking Offer</td><td>–$1,699.90</td></tr>
+                <tr><td>VISAR Fee</td><td>$12.00</td></tr>
+                <tr><td>Travel Protection Plan</td><td>$1,238.24</td></tr>
+                <tr><td>BVI Cruising Permit Fee</td><td>$120.00</td></tr>
+                <tr><td>Blue Marine Foundation</td><td>$12.00</td></tr>
+                <tr><td>BVI National Parks Permit</td><td>$35.00</td></tr>
+                <tr><td><strong>Total Quote Amount</strong></td><td><strong>$16,716.34</strong></td></tr>
+              </table>
+              <div class="note-box">Wi-Fi is included on all crewed charters. Sleep-aboard is not available for crewed charters; a hotel can be arranged through the Pre-Travel team once the charter is confirmed. Exact food/beverage provisioning amount for the crewed charter was UNKNOWN as of the last email — coordinated later with the Pre-Travel team and chef.</div>
+            </div>
+          </div>
+        </details>
+
+        <details class="date-group">
+          <summary>Apr 24 &amp; 30, 2027 <span>Chillout Charters — water taxi (transport, not a yacht charter)</span></summary>
+          <div class="date-body">
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Private Water Taxi <span class="charter-type-pill pill-taxi">Transport</span></h4>
+                <div class="quote-totals"><span class="quote-total">$2,160 round trip</span><span class="quote-couple">$720.00 / couple</span></div>
+              </div>
+              <div class="quote-meta">Cruz Bay (St. John) or American Yacht Harbor, Red Hook (St. Thomas) ⇄ The Moorings base, Road Town · Party of 6</div>
+              <table class="lineitems">
+                <tr><td>One-way, groups of 6+ (per person, all-inclusive of fees)</td><td>$180.00 pp</td></tr>
+                <tr><td>One-way total for party of 6</td><td>$1,080.00</td></tr>
+                <tr><td>Round-trip total for party of 6</td><td>$2,160.00</td></tr>
+                <tr><td>Groups of 5 or fewer — fixed one-way</td><td>$720.00 + $60/pp fees</td></tr>
+                <tr><td>Charlotte Amalie / Crown Bay pickup surcharge (each way, weather dependent)</td><td>+$350.00</td></tr>
+              </table>
+              <div class="note-box">Quoted price already bundles BVI/USVI clearances, dockage, customs, cruising permits, environmental levies, and passenger tax — Chillout Charters says other operators add these on top. Ground transport (STT airport → Red Hook, ~20–30 min) is separate, paid in cash to the driver: $135 fixed for 1–5 pax, or $25/pp for 6+. Quote valid for one month from 28-Jul-26.</div>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </details>
+
+    <!-- USVI -->
+    <details class="loc-group">
+      <summary>US Virgin Islands (St. Thomas / St. John) <span class="loc-summary-meta">Vagabonde Adventures — skippered only</span></summary>
+      <div class="loc-body">
+        <details class="date-group" open>
+          <summary>Same weeks as Abaco option (Jan 23, 2027 or Apr 24 – May 1, 2027) <span>Vagabonde Adventures</span></summary>
+          <div class="date-body">
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Mah Na Mah Na <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
+                <div class="quote-totals"><span class="quote-total">$17,000</span><span class="quote-couple">$5,666.67 / couple</span></div>
+              </div>
+              <div class="quote-meta">Guest cabins: 3 · Crew cabin: 1 · Max guests: 6</div>
+              <table class="lineitems">
+                <tr><td>Yacht</td><td>$17,000</td></tr>
+                <tr><td>Taxes and fees</td><td>Included</td></tr>
+                <tr><td>Captain fee</td><td>Included</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>$17,000</strong></td></tr>
+              </table>
+              <div class="note-box">Pitched as an easier-logistics alternative — sails around St. Thomas &amp; St. John, no surprise fuel/mooring/ice/customs costs since they're built in, and the weekly rate can be prorated for a shorter trip. Flights into St. Thomas are described as easy if BVI ferry/flight timing doesn't line up for the group.</div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- GRENADA -->
+    <details class="loc-group">
+      <summary>Grenada <span class="loc-summary-meta">The Moorings — bareboat + skipper quoted; no full-crew availability</span></summary>
+      <div class="loc-body">
+        <details class="date-group" open>
+          <summary>Jan 29 – Feb 4, 2027 (6 nights) <span>The Moorings — Quote SZ5932</span></summary>
+          <div class="date-body">
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>Moorings 4500L – Club Class (3+ yrs) <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
+                <div class="quote-totals"><span class="quote-total">$16,237.80</span><span class="quote-couple">$5,412.60 / couple</span></div>
+              </div>
+              <div class="quote-meta">Quote ID SZ5932 · Quoted 24-Jul-26 · Boarding 29-Jan-27 18:00 · Ends 4-Feb-27 11:00 · 6 in party · Port Louis Marina, Grenada</div>
+              <table class="lineitems">
+                <tr><td>Moorings 4500L – Club (3+ y/o)</td><td>$11,948.00</td></tr>
+                <tr><td>Travel Protection Plan</td><td>$1,202.80</td></tr>
+                <tr><td>Yacht Damage Waiver</td><td>$725.00</td></tr>
+                <tr><td>Skipper</td><td>$1,200.00</td></tr>
+                <tr><td>Provisions – Skipper</td><td>$150.00</td></tr>
+                <tr><td>Blue Marine Foundation</td><td>$12.00</td></tr>
+                <tr><td>Sleep Aboard</td><td>$1,625.20</td></tr>
+                <tr><td>Discount – Comp Sleepaboard</td><td>–$625.20</td></tr>
+                <tr><td><strong>Total Quote Amount</strong></td><td><strong>$16,237.80</strong></td></tr>
+              </table>
+              <div class="note-box">Boards on the 29th at 6pm rather than the 25th like the BVI quotes — this is a different travel window (late January) than the April BVI/Abaco dates. This quote is filed under Moorings' "Bareboat" vacation type but includes a skipper and skipper provisions line, so it's functionally a bareboat-with-skipper charter, matching the BVI TA0576 style.</div>
+            </div>
+            <div class="note-box warn">Only this one 6-night quote was found for Grenada. If a 5-night or 7-night alternate quote exists, it wasn't among the files reviewed — let me know if you'd like it added once it's available.</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- ST LUCIA -->
+    <details class="loc-group">
+      <summary>St. Lucia <span class="loc-summary-meta">The Moorings — bareboat + skipper quoted; no full-crew availability</span></summary>
+      <div class="loc-body">
+        <details class="date-group" open>
+          <summary>Jan 29 – Feb 4, 2027 (6 nights) <span>The Moorings — Quote SZ5984</span></summary>
+          <div class="date-body">
+            <div class="quote-card">
+              <div class="quote-head">
+                <h4>TM 5000, 4-Cabin Club (3+ yrs) <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
+                <div class="quote-totals"><span class="quote-total">$17,507.88</span><span class="quote-couple">$5,835.96 / couple</span></div>
+              </div>
+              <div class="quote-meta">Quote ID SZ5984 · Quoted 24-Jul-26 · Boarding 29-Jan-27 18:00 · Ends 4-Feb-27 11:00 · 6 in party · Rodney Bay, St. Lucia</div>
+              <table class="lineitems">
+                <tr><td>TM 5000 4-Cabin Club (3+ y/o)</td><td>$12,499.00</td></tr>
+                <tr><td>Yacht Damage Waiver</td><td>$850.00</td></tr>
+                <tr><td>Travel Protection Plan</td><td>$1,296.88</td></tr>
+                <tr><td>Skipper</td><td>$1,200.00</td></tr>
+                <tr><td>Provisions – Skipper</td><td>$150.00</td></tr>
+                <tr><td>Blue Marine Foundation</td><td>$12.00</td></tr>
+                <tr><td>Sleep Aboard</td><td>$1,699.32</td></tr>
+                <tr><td>Sleep Aboard Promotion</td><td>–$199.32</td></tr>
+                <tr><td><strong>Total Quote Amount</strong></td><td><strong>$17,507.88</strong></td></tr>
+              </table>
+              <div class="note-box">Larger boat than the Grenada option (4-cabin TM 5000 vs. the 4500L). Same late-January travel window as the Grenada quote. Filed as "Bareboat" but includes a skipper and skipper provisions line, so functionally bareboat-with-skipper.</div>
+            </div>
+            <div class="note-box warn">Only this one 6-night quote was found for St. Lucia. If a 5-night or 7-night alternate quote exists, it wasn't among the files reviewed — let me know if you'd like it added once it's available.</div>
+          </div>
+        </details>
+      </div>
+    </details>
+
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <h2 class="section-title">FAQ Summary</h2>
+    <p class="section-note">Answers pulled directly from the charter companies' emails. Anything they didn't clearly answer is marked UNKNOWN rather than guessed.</p>
+
+    <details class="faq">
+      <summary>Is the Yacht Damage Waiver only for bareboat charters?</summary>
+      <div class="faq-a">No — The Moorings offers the Yacht Damage Waiver (YDW) on all boats they offer. It's optional but recommended as the boat-insurance option (an alternative is paying a higher security deposit at the base instead).<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>What does the Travel Protection Plan cost, and is it the same as the crewed-charter travel insurance?</summary>
+      <div class="faq-a">The Travel Protection Plan (TPP) costs 8% of the total trip cost; a Cancel For Any Reason (CFAR) upgrade costs 12.8% of total trip cost. Whether this is the same product as the "optional travel insurance" listed on the crewed-charter page is UNKNOWN — that specific follow-up wasn't directly confirmed in the emails reviewed.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>Is there an early-booking discount on the skippered bareboat quote?</summary>
+      <div class="faq-a">No. The Moorings' stated policy is that they don't currently offer early-booking discounts for crewed charters, and in practice, quote TA0576 (skippered bareboat) shows no early-booking line — while the bareboat (TA0580) and crewed (TA0581) quotes both do show one (–$1,049.90 and –$1,699.90 respectively). The Grenada and St. Lucia skippered quotes (SZ5932, SZ5984) also show no early-booking line.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; quotes TA0576/TA0580/TA0581/SZ5932/SZ5984</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>Are other discounts available (GLOBE, AAA, AARP, etc.)?</summary>
+      <div class="faq-a">None available at the moment, per Arelis — though she offered to check with her supervisor for any additional help.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>Why is Wi-Fi only shown as included on one quote?</summary>
+      <div class="faq-a">It comes down to yacht class, not charter style: the skippered bareboat quote (TA0576) is a "Classic Class" yacht (3+ years old), where Wi-Fi is an add-on and appears as its own $185 line item. The bareboat quote (TA0580) is on an "Exclusive Class" yacht (1–3 years old), which includes Wi-Fi at no extra charge — so there's no separate line for it. All crewed charters include Wi-Fi.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>Can we add sleep-aboard or a hotel for the night of 4/24, since the flight lands after the last ferry?</summary>
+      <div class="faq-a">Sleep-aboard is reflected on the bareboat/skippered quotes (see the "Sleep Aboard" lines on TA0576, SZ5932, and SZ5984). It is not available for crewed charters — for the crewed option, a hotel can be arranged instead through The Moorings' Pre-Travel team once the charter is confirmed.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; quotes TA0576, SZ5932, SZ5984</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>Our flight lands in St. Thomas at 3pm — how late can we arrive to the boat?</summary>
+      <div class="faq-a">Base staff typically leave around 9:00 PM, but there's always someone available to welcome guests arriving later.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>How do we get from St. Thomas to the boat in Tortola — ferry or water taxi?</summary>
+      <div class="faq-a">You can arrange the ferry yourself, or use a private water taxi. Chillout Charters quoted a private water taxi between Cruz Bay/Red Hook and The Moorings' Road Town base at $180/person one-way (all fees included) for a group of 6, or $2,160 round trip ($720/couple) — plus a $350/each-way surcharge if you'd rather be picked up/dropped at Charlotte Amalie's Crown Bay Marina near the airport (weather dependent). Separate ground transport from the St. Thomas airport to Red Hook is paid in cash to the driver: $135 fixed for 1–5 passengers, or $25/person for 6 or more.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; Suzanne Fonseca, Chillout Charters, 28-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>The charter ends at 11am — is that enough time to make a 1:45pm or 3:40pm flight out of St. Thomas?</summary>
+      <div class="faq-a">A 1:45 PM flight would be very tight, especially given the transfer time from Tortola. The Moorings recommends the 3:40 PM flight instead. Flying out of Tortola (Beef Island) directly is easier and faster than routing through St. Thomas.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>What exactly is included with the skippered charter?</summary>
+      <div class="faq-a">The skipper and their own provisions are included. The group's own food and beverages are separate and arranged at your own expense.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>Is there a credit card surcharge for a Massachusetts billing address?</summary>
+      <div class="faq-a">No — The Moorings confirmed there's no credit card surcharge for Massachusetts billing addresses (the surcharge policy also exempts Connecticut and Puerto Rico billing addresses, per the quotes' fine print).<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; quote terms</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>What's the payment schedule — deposit, balance, and how are incidentals handled?</summary>
+      <div class="faq-a">Initial payment is 50%, with the remaining balance due in December. The Travel Protection Plan must be paid in full at time of purchase, so the first payment may run slightly higher than the second. Payments can be split across multiple credit cards. How security-deposit incidentals are specifically billed at the end of the charter is UNKNOWN beyond the general Yacht Damage Waiver option.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>How much food and drink is included on the fully crewed charter — is extra provisioning available?</summary>
+      <div class="faq-a">The Moorings doesn't have an exact amount to share — provisioning for crewed charters is typically coordinated with the Pre-Travel team and the onboard chef based on the group's preferences and menu. They said they rarely hear of guests needing additional provisioning, but were following up to confirm.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>What's not included on the Abaco partner-boat (skippered) quotes?</summary>
+      <div class="faq-a">Food, fuel, and mooring fees are excluded from all three Abaco partner-boat quotes. An optional chef is available for $2,550 for the week — Vagabonde recommends booking the full week rather than a night or two, since it's more of an all-or-nothing value proposition.<span class="src">Source: Jack Karger, Vagabonde Adventures, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>Has Corey &amp; Tina's group shared a budget with Vagabonde Adventures yet?</summary>
+      <div class="faq-a">UNKNOWN — Vagabonde asked for a per-couple or total budget before preparing a full Abaco proposal; there's no reply in the thread yet confirming one was shared.<span class="src">Source: Jack Karger, Vagabonde Adventures, 29-Jul-26</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>Is full-crew available in Grenada or St. Lucia?</summary>
+      <div class="faq-a">No — The Moorings confirmed they don't currently have availability for a fully crewed charter in either Grenada or St. Lucia for the requested dates. Both destinations were quoted as bareboat-with-skipper instead.<span class="src">Source: Arelis Marin, The Moorings, 24-Jul-26; quotes SZ5932, SZ5984</span></div>
+    </details>
+
+    <details class="faq">
+      <summary>Why are the Grenada/St. Lucia quotes on different dates than the BVI/Abaco quotes?</summary>
+      <div class="faq-a">Grenada (SZ5932) and St. Lucia (SZ5984) were both quoted for Jan 29 – Feb 4, 2027 — a late-January window rather than the April 24–May 1 window used for the BVI and Abaco quotes. UNKNOWN whether Moorings can re-quote Grenada/St. Lucia for the April dates as well.<span class="src">Source: quotes SZ5932, SZ5984</span></div>
+    </details>
+
+  </section>
+
+</main>
+
+<footer>
+  Compiled from: Vagabonde Adventures (Jack Karger) email, 29-Jul-26 · The Moorings (Arelis Marin) email thread, 24–29-Jul-26 and quotes TA0576 / TA0580 / TA0581 / SZ5932 / SZ5984 · Chillout Charters (Suzanne Fonseca) water taxi quote, 28-Jul-26 · flight fares as provided by Corey &amp; Tina. All prices, availability, and offers are subject to change until deposited — reconfirm with each operator before booking. Fields marked UNKNOWN reflect information not present in the reviewed documents, not an assumption.
+</footer>
+
+</body>
+</html>
