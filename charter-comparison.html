@@ -270,6 +270,9 @@
     margin-top:10px;
   }
   .note-box.warn{border-left-color:var(--unknown);background:#f5e9e6;}
+  .note-box a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);}
+  .note-box a:hover{color:var(--coral);border-bottom-color:var(--coral);}
+  #references .note-box strong{color:var(--navy);display:block;margin-bottom:6px;font-size:13px;}
 
   /* FAQ */
   details.faq{
@@ -291,6 +294,19 @@
   details.faq[open] summary::after{content:"–";}
   details.faq .faq-a{margin-top:8px;font-size:13.5px;color:var(--ink);max-width:760px;}
   details.faq .faq-a .src{color:var(--muted);font-size:12px;display:block;margin-top:4px;}
+  details.faq .faq-a .answered-by{
+    display:block;
+    width:fit-content;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    font-weight:700;
+    color:var(--teal);
+    background:#e4eeec;
+    padding:2px 8px;
+    border-radius:10px;
+    margin-bottom:8px;
+  }
 
   footer{
     max-width:1020px;margin:0 auto;padding:20px 24px 60px;
@@ -724,95 +740,124 @@
 
     <details class="faq">
       <summary>Is the Yacht Damage Waiver only for bareboat charters?</summary>
-      <div class="faq-a">No — The Moorings offers the Yacht Damage Waiver (YDW) on all boats they offer. It's optional but recommended as the boat-insurance option (an alternative is paying a higher security deposit at the base instead).<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>No — The Moorings offers the Yacht Damage Waiver (YDW) on all boats they offer. It's optional but recommended as the boat-insurance option (an alternative is paying a higher security deposit at the base instead).<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>What does the Travel Protection Plan cost, and is it the same as the crewed-charter travel insurance?</summary>
-      <div class="faq-a">The Travel Protection Plan (TPP) costs 8% of the total trip cost; a Cancel For Any Reason (CFAR) upgrade costs 12.8% of total trip cost. Whether this is the same product as the "optional travel insurance" listed on the crewed-charter page is UNKNOWN — that specific follow-up wasn't directly confirmed in the emails reviewed.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>The Travel Protection Plan (TPP) costs 8% of the total trip cost; a Cancel For Any Reason (CFAR) upgrade costs 12.8% of total trip cost. Whether this is the same product as the "optional travel insurance" listed on the crewed-charter page is UNKNOWN — that specific follow-up wasn't directly confirmed in the emails reviewed.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>Is there an early-booking discount on the skippered bareboat quote?</summary>
-      <div class="faq-a">No. The Moorings' stated policy is that they don't currently offer early-booking discounts for crewed charters, and in practice, quote TA0576 (skippered bareboat) shows no early-booking line — while the bareboat (TA0580) and crewed (TA0581) quotes both do show one (–$1,049.90 and –$1,699.90 respectively). The Grenada and St. Lucia skippered quotes (SZ5932, SZ5984) also show no early-booking line.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; quotes TA0576/TA0580/TA0581/SZ5932/SZ5984</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>No. The Moorings' stated policy is that they don't currently offer early-booking discounts for crewed charters, and in practice, quote TA0576 (skippered bareboat) shows no early-booking line — while the bareboat (TA0580) and crewed (TA0581) quotes both do show one (–$1,049.90 and –$1,699.90 respectively). The Grenada and St. Lucia skippered quotes (SZ5932, SZ5984) also show no early-booking line.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; quotes TA0576/TA0580/TA0581/SZ5932/SZ5984</span></div>
     </details>
 
     <details class="faq">
       <summary>Are other discounts available (GLOBE, AAA, AARP, etc.)?</summary>
-      <div class="faq-a">None available at the moment, per Arelis — though she offered to check with her supervisor for any additional help.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>None available at the moment, per Arelis — though she offered to check with her supervisor for any additional help.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>Why is Wi-Fi only shown as included on one quote?</summary>
-      <div class="faq-a">It comes down to yacht class, not charter style: the skippered bareboat quote (TA0576) is a "Classic Class" yacht (3+ years old), where Wi-Fi is an add-on and appears as its own $185 line item. The bareboat quote (TA0580) is on an "Exclusive Class" yacht (1–3 years old), which includes Wi-Fi at no extra charge — so there's no separate line for it. All crewed charters include Wi-Fi.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>It comes down to yacht class, not charter style: the skippered bareboat quote (TA0576) is a "Classic Class" yacht (3+ years old), where Wi-Fi is an add-on and appears as its own $185 line item. The bareboat quote (TA0580) is on an "Exclusive Class" yacht (1–3 years old), which includes Wi-Fi at no extra charge — so there's no separate line for it. All crewed charters include Wi-Fi.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>Can we add sleep-aboard or a hotel for the night of 4/24, since the flight lands after the last ferry?</summary>
-      <div class="faq-a">Sleep-aboard is reflected on the bareboat/skippered quotes (see the "Sleep Aboard" lines on TA0576, SZ5932, and SZ5984). It is not available for crewed charters — for the crewed option, a hotel can be arranged instead through The Moorings' Pre-Travel team once the charter is confirmed.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; quotes TA0576, SZ5932, SZ5984</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>Sleep-aboard is reflected on the bareboat/skippered quotes (see the "Sleep Aboard" lines on TA0576, SZ5932, and SZ5984). It is not available for crewed charters — for the crewed option, a hotel can be arranged instead through The Moorings' Pre-Travel team once the charter is confirmed.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; quotes TA0576, SZ5932, SZ5984</span></div>
     </details>
 
     <details class="faq">
       <summary>Our flight lands in St. Thomas at 3pm — how late can we arrive to the boat?</summary>
-      <div class="faq-a">Base staff typically leave around 9:00 PM, but there's always someone available to welcome guests arriving later.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>Base staff typically leave around 9:00 PM, but there's always someone available to welcome guests arriving later.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>How do we get from St. Thomas to the boat in Tortola — ferry or water taxi?</summary>
-      <div class="faq-a">You can arrange the ferry yourself, or use a private water taxi. Chillout Charters quoted a private water taxi between Cruz Bay/Red Hook and The Moorings' Road Town base at $180/person one-way (all fees included) for a group of 6, or $2,160 round trip ($720/couple) — plus a $350/each-way surcharge if you'd rather be picked up/dropped at Charlotte Amalie's Crown Bay Marina near the airport (weather dependent). Separate ground transport from the St. Thomas airport to Red Hook is paid in cash to the driver: $135 fixed for 1–5 passengers, or $25/person for 6 or more.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; Suzanne Fonseca, Chillout Charters, 28-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings &amp; Chillout Charters</span>You can arrange the ferry yourself, or use a private water taxi. Chillout Charters quoted a private water taxi between Cruz Bay/Red Hook and The Moorings' Road Town base at $180/person one-way (all fees included) for a group of 6, or $2,160 round trip ($720/couple) — plus a $350/each-way surcharge if you'd rather be picked up/dropped at Charlotte Amalie's Crown Bay Marina near the airport (weather dependent). Separate ground transport from the St. Thomas airport to Red Hook is paid in cash to the driver: $135 fixed for 1–5 passengers, or $25/person for 6 or more.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; Suzanne Fonseca, Chillout Charters, 28-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>The charter ends at 11am — is that enough time to make a 1:45pm or 3:40pm flight out of St. Thomas?</summary>
-      <div class="faq-a">A 1:45 PM flight would be very tight, especially given the transfer time from Tortola. The Moorings recommends the 3:40 PM flight instead. Flying out of Tortola (Beef Island) directly is easier and faster than routing through St. Thomas.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>A 1:45 PM flight would be very tight, especially given the transfer time from Tortola. The Moorings recommends the 3:40 PM flight instead. Flying out of Tortola (Beef Island) directly is easier and faster than routing through St. Thomas.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>What exactly is included with the skippered charter?</summary>
-      <div class="faq-a">The skipper and their own provisions are included. The group's own food and beverages are separate and arranged at your own expense.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>The skipper and their own provisions are included. The group's own food and beverages are separate and arranged at your own expense.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>Is there a credit card surcharge for a Massachusetts billing address?</summary>
-      <div class="faq-a">No — The Moorings confirmed there's no credit card surcharge for Massachusetts billing addresses (the surcharge policy also exempts Connecticut and Puerto Rico billing addresses, per the quotes' fine print).<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; quote terms</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>No — The Moorings confirmed there's no credit card surcharge for Massachusetts billing addresses (the surcharge policy also exempts Connecticut and Puerto Rico billing addresses, per the quotes' fine print).<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26; quote terms</span></div>
     </details>
 
     <details class="faq">
       <summary>What's the payment schedule — deposit, balance, and how are incidentals handled?</summary>
-      <div class="faq-a">Initial payment is 50%, with the remaining balance due in December. The Travel Protection Plan must be paid in full at time of purchase, so the first payment may run slightly higher than the second. Payments can be split across multiple credit cards. How security-deposit incidentals are specifically billed at the end of the charter is UNKNOWN beyond the general Yacht Damage Waiver option.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>Initial payment is 50%, with the remaining balance due in December. The Travel Protection Plan must be paid in full at time of purchase, so the first payment may run slightly higher than the second. Payments can be split across multiple credit cards. How security-deposit incidentals are specifically billed at the end of the charter is UNKNOWN beyond the general Yacht Damage Waiver option.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>How much food and drink is included on the fully crewed charter — is extra provisioning available?</summary>
-      <div class="faq-a">The Moorings doesn't have an exact amount to share — provisioning for crewed charters is typically coordinated with the Pre-Travel team and the onboard chef based on the group's preferences and menu. They said they rarely hear of guests needing additional provisioning, but were following up to confirm.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>The Moorings doesn't have an exact amount to share — provisioning for crewed charters is typically coordinated with the Pre-Travel team and the onboard chef based on the group's preferences and menu. They said they rarely hear of guests needing additional provisioning, but were following up to confirm.<span class="src">Source: Arelis Marin, The Moorings, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>What's not included on the Abaco partner-boat (skippered) quotes?</summary>
-      <div class="faq-a">Food, fuel, and mooring fees are excluded from all three Abaco partner-boat quotes. An optional chef is available for $2,550 for the week — Vagabonde recommends booking the full week rather than a night or two, since it's more of an all-or-nothing value proposition.<span class="src">Source: Jack Karger, Vagabonde Adventures, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: Vagabonde Adventures</span>Food, fuel, and mooring fees are excluded from all three Abaco partner-boat quotes. An optional chef is available for $2,550 for the week — Vagabonde recommends booking the full week rather than a night or two, since it's more of an all-or-nothing value proposition.<span class="src">Source: Jack Karger, Vagabonde Adventures, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>Has Corey &amp; Tina's group shared a budget with Vagabonde Adventures yet?</summary>
-      <div class="faq-a">UNKNOWN — Vagabonde asked for a per-couple or total budget before preparing a full Abaco proposal; there's no reply in the thread yet confirming one was shared.<span class="src">Source: Jack Karger, Vagabonde Adventures, 29-Jul-26</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: Vagabonde Adventures</span>UNKNOWN — Vagabonde asked for a per-couple or total budget before preparing a full Abaco proposal; there's no reply in the thread yet confirming one was shared.<span class="src">Source: Jack Karger, Vagabonde Adventures, 29-Jul-26</span></div>
     </details>
 
     <details class="faq">
       <summary>Is full-crew available in Grenada or St. Lucia?</summary>
-      <div class="faq-a">No — The Moorings confirmed they don't currently have availability for a fully crewed charter in either Grenada or St. Lucia for the requested dates. Both destinations were quoted as bareboat-with-skipper instead.<span class="src">Source: Arelis Marin, The Moorings, 24-Jul-26; quotes SZ5932, SZ5984</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>No — The Moorings confirmed they don't currently have availability for a fully crewed charter in either Grenada or St. Lucia for the requested dates. Both destinations were quoted as bareboat-with-skipper instead.<span class="src">Source: Arelis Marin, The Moorings, 24-Jul-26; quotes SZ5932, SZ5984</span></div>
     </details>
 
     <details class="faq">
       <summary>Why are the Grenada/St. Lucia quotes on different dates than the BVI/Abaco quotes?</summary>
-      <div class="faq-a">Grenada (SZ5932) and St. Lucia (SZ5984) were both quoted for Jan 29 – Feb 4, 2027 — a late-January window rather than the April 24–May 1 window used for the BVI and Abaco quotes. UNKNOWN whether Moorings can re-quote Grenada/St. Lucia for the April dates as well.<span class="src">Source: quotes SZ5932, SZ5984</span></div>
+      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>Grenada (SZ5932) and St. Lucia (SZ5984) were both quoted for Jan 29 – Feb 4, 2027 — a late-January window rather than the April 24–May 1 window used for the BVI and Abaco quotes. UNKNOWN whether Moorings can re-quote Grenada/St. Lucia for the April dates as well.<span class="src">Source: quotes SZ5932, SZ5984</span></div>
     </details>
 
+  <!-- REFERENCES -->
+  <section class="block" id="references">
+    <h2 class="section-title">References</h2>
+    <p class="section-note">Background reading and operator sites — not quote sources, but useful for policy details, sample itineraries, and booking a transfer.</p>
+
+    <div class="note-box" style="margin-bottom:10px;">
+      <strong>Moorings information</strong><br>
+      <a href="https://www.moorings.com/yacht-charter/whats-included" target="_blank" rel="noopener">moorings.com/yacht-charter/whats-included</a><br>
+      <a href="https://www.moorings.com/yacht-charter/crewed-charter/whats-included-crewed" target="_blank" rel="noopener">moorings.com/yacht-charter/crewed-charter/whats-included-crewed</a><br>
+      <a href="https://www.moorings.com/destinations/caribbean/british-virgin-islands-yacht-charters/useful-information#tabs-navigation" target="_blank" rel="noopener">moorings.com/destinations/caribbean/british-virgin-islands-yacht-charters/useful-information</a>
+    </div>
+
+    <div class="note-box" style="margin-bottom:10px;">
+      <strong>Vagabonde Adventures</strong><br>
+      <a href="https://www.vagabondeadventures.com/the-bahamas" target="_blank" rel="noopener">vagabondeadventures.com/the-bahamas</a>
+    </div>
+
+    <div class="note-box" style="margin-bottom:10px;">
+      <strong>Cruise Abaco</strong><br>
+      <a href="https://cruiseabaco.com/sample-itinerary/" target="_blank" rel="noopener">cruiseabaco.com/sample-itinerary</a>
+    </div>
+
+    <div class="note-box">
+      <strong>Ferries and private water taxis from St. Thomas to Tortola</strong><br>
+      <a href="https://www.roadtownfastferry.com/" target="_blank" rel="noopener">roadtownfastferry.com</a><br>
+      <a href="https://islandtimebvi.com/" target="_blank" rel="noopener">islandtimebvi.com</a><br>
+      <a href="https://dolphinshuttle.com/" target="_blank" rel="noopener">dolphinshuttle.com</a><br>
+      <a href="https://www.chilloutchartersbvi.com/" target="_blank" rel="noopener">chilloutchartersbvi.com</a>
+    </div>
   </section>
 
 </main>
 
 <footer>
-  Compiled from: Vagabonde Adventures (Jack Karger) email, 29-Jul-26 · The Moorings (Arelis Marin) email thread, 24–29-Jul-26 and quotes TA0576 / TA0580 / TA0581 / SZ5932 / SZ5984 · Chillout Charters (Suzanne Fonseca) water taxi quote, 28-Jul-26 · flight fares as provided by Corey &amp; Tina. All prices, availability, and offers are subject to change until deposited — reconfirm with each operator before booking. Fields marked UNKNOWN reflect information not present in the reviewed documents, not an assumption.
+  Compiled from: Vagabonde Adventures (Jack Karger) email, 29-Jul-26 · The Moorings (Arelis Marin) email thread, 24–29-Jul-26, Moorings Q&amp;A notes, and quotes TA0576 / TA0580 / TA0581 / SZ5932 / SZ5984 · Chillout Charters (Suzanne Fonseca) water taxi quote, 28-Jul-26 · Cruise Abaco Offer #582, 17-Jun-26 · flight fares as provided by Corey &amp; Tina. All prices, availability, and offers are subject to change until deposited — reconfirm with each operator before booking. Fields marked UNKNOWN reflect information not present in the reviewed documents, not an assumption.
 </footer>
 
 </body>
