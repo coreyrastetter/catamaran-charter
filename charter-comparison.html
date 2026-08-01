@@ -316,6 +316,48 @@
   .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--muted);margin:10px 0 18px;}
   .legend span{display:flex;align-items:center;gap:6px;}
   .swatch{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+  /* Spotlight: "look here first" highlight */
+  :root{ --spotlight:#c9932a; --spotlight-bg:#fdf3dc; }
+  .spotlight-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-weight:800;
+    color:#7a5a10;
+    background:linear-gradient(135deg,#ffe9b8,#f6d488);
+    border:1px solid var(--spotlight);
+    padding:2px 8px;
+    border-radius:10px;
+    margin-left:8px;
+    white-space:nowrap;
+  }
+  tr.spotlight-row{
+    background:var(--spotlight-bg) !important;
+    box-shadow:inset 3px 0 0 var(--spotlight);
+  }
+  .quote-card.spotlight-card{
+    background:var(--spotlight-bg);
+    border-color:var(--spotlight);
+    box-shadow:0 0 0 1px var(--spotlight), 0 4px 14px rgba(201,147,42,0.18);
+  }
+  .cell-boat.spotlight-cell{
+    background:var(--spotlight-bg);
+    display:block;
+    margin-top:4px;
+    padding:6px 8px;
+    border-radius:5px;
+    box-shadow:inset 3px 0 0 var(--spotlight);
+  }
+  a.spotlight-link{
+    background:var(--spotlight-bg);
+    border-bottom-color:var(--spotlight) !important;
+    padding:1px 4px;
+    border-radius:3px;
+  }
 </style>
 </head>
 <body>
@@ -339,29 +381,25 @@
   <!-- FLIGHTS -->
   <section class="block" id="flights">
     <h2 class="section-title">Flights</h2>
-    <p class="section-note">Round-trip fares as gathered. "Per couple" = fare × 2. Airport codes: GND = Grenada, UVF = St. Lucia (Hewanorra), STT = St. Thomas, USVI, EIS = Beef Island/Tortola, BVI, MHH = Marsh Harbour, Abaco. JetBlue fares are priced with Extra Space; American fares are priced with Main Plus — the easiest way on each airline to get a fare that includes seat selection and a checked bag.</p>
+    <p class="section-note">Round-trip fares as gathered. "Per couple" = fare × 2. Airport codes: STT = St. Thomas, USVI, EIS = Beef Island/Tortola, BVI, MHH = Marsh Harbour, Abaco. JetBlue fares are priced with Extra Space; American fares are priced with Main Plus — the easiest way on each airline to get a fare that includes seat selection and a checked bag. Grenada (GND) and St. Lucia (UVF) flights have been moved to the archive at the bottom of the page.</p>
     <div class="flights-wrap">
       <table class="flights">
         <thead>
           <tr><th>Route</th><th>Charter Location</th><th>Travel Window</th><th>Fare (per person, RT)</th><th>Per Couple</th><th>Airline</th></tr>
         </thead>
         <tbody>
-          <tr><td class="route">BOS ⇄ GND</td><td>Grenada</td><td>1/23/27 – 1/30/27</td><td class="fare">$904</td><td class="couple">$1,808</td><td class="airline">JetBlue</td></tr>
-          <tr><td class="route">BOS ⇄ GND</td><td>Grenada</td><td>4/24/27 – 4/30/27</td><td class="fare">$1,708</td><td class="couple">$3,416</td><td class="airline">JetBlue</td></tr>
-          <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>1/23/27 – 1/30/27</td><td class="fare">$1,756</td><td class="couple">$3,512</td><td class="airline">JetBlue</td></tr>
-          <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>4/24/27 – 5/1/27</td><td class="fare">$3,248</td><td class="couple">$6,496</td><td class="airline">JetBlue</td></tr>
-          <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>1/23/27 – 1/30/27</td><td class="fare">$706</td><td class="couple">$1,412</td><td class="airline">American</td></tr>
-          <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>4/24/27 – 4/30/27</td><td class="fare">$991</td><td class="couple">$1,982</td><td class="airline">American</td></tr>
           <tr><td class="route">BOS ⇄ EIS</td><td>BVI (Tortola)</td><td>1/23/27 – 1/30/27</td><td class="fare">$1,392</td><td class="couple">$2,784</td><td class="airline">American</td></tr>
           <tr><td class="route">BOS ⇄ EIS</td><td>BVI (Tortola)</td><td>4/24/27 – 4/30/27</td><td class="fare">$1,657</td><td class="couple">$3,314</td><td class="airline">American</td></tr>
           <tr><td class="route">BOS ⇄ STT</td><td>USVI / BVI (via St. Thomas)</td><td>1/23/27 – 1/30/27</td><td class="fare">$934</td><td class="couple">$1,868</td><td class="airline">JetBlue</td></tr>
           <tr><td class="route">BOS ⇄ STT</td><td>USVI / BVI (via St. Thomas)</td><td>4/24/27 – 5/1/27</td><td class="fare">$1,033</td><td class="couple">$2,066</td><td class="airline">JetBlue</td></tr>
+          <tr class="spotlight-row"><td class="route">BOS ⇄ STT <span class="spotlight-badge">★ Look here first</span></td><td>USVI / BVI (via St. Thomas)</td><td>1/21/27 – 1/28/27</td><td class="fare">$678<br><span style="font-weight:400;color:var(--muted);font-size:11.5px;">or 48,700 JetBlue points</span></td><td class="couple">$1,356<br><span style="font-weight:400;color:var(--muted);font-size:11.5px;">or 97,400 JetBlue points</span></td><td class="airline">JetBlue</td></tr>
           <tr><td class="route">BOS ⇄ MHH</td><td>Abaco</td><td>1/22/27 – 1/30/27</td><td class="fare">$943</td><td class="couple">$1,886</td><td class="airline">American</td></tr>
           <tr><td class="route">BOS ⇄ MHH</td><td>Abaco</td><td>4/24/27 – 4/30/27</td><td class="fare">$1,100</td><td class="couple">$2,200</td><td class="airline">American</td></tr>
         </tbody>
       </table>
     </div>
     <div class="note-box" style="margin-top:12px;">BVI can be reached either directly via BOS ⇄ EIS (Beef Island/Tortola, American) or via BOS ⇄ STT (JetBlue) plus the Chillout Charters water taxi/ferry connection from St. Thomas — see the BVI section below for that transfer cost.</div>
+    <div class="note-box">The 1/21–1/28/27 BOS ⇄ STT fare ($678) is a <strong>direct flight down</strong> — the other STT dates weren't specified as direct or connecting. As an alternative to paying cash, JetBlue is also offering that fare for 48,700 points per person.</div>
   </section>
 
   <!-- MATRIX -->
@@ -399,25 +437,13 @@
           <tr>
             <td class="loc">USVI (St. Thomas / St. John)</td>
             <td><span class="cell-none">Not offered</span></td>
-            <td><span class="cell-price">$17,000</span><span class="cell-couple">$5,666.67 / couple</span><span class="cell-boat">Mah Na Mah Na, all-inclusive <span class="badge company-vagabonde">Vagabonde</span></span></td>
+            <td><span class="cell-price">$17,000</span><span class="cell-couple">$5,666.67 / couple</span><span class="cell-boat spotlight-cell">Mah Na Mah Na, all-inclusive <span class="badge company-vagabonde">Vagabonde</span><span class="spotlight-badge">★ Look here first</span></span></td>
             <td><span class="cell-price">$25,000+</span><span class="cell-couple">$8,333.33+ / couple</span><span class="cell-boat">One Love, chef &amp; provisions included <span class="badge company-vagabonde">Vagabonde</span> — starting price</span></td>
-          </tr>
-          <tr>
-            <td class="loc">Grenada</td>
-            <td><span class="cell-unknown">No quote yet</span></td>
-            <td><span class="cell-price">$16,237.80</span><span class="cell-couple">$5,412.60 / couple</span><span class="cell-boat">Moorings 4500L Club, 6 nights <span class="badge company-moorings">Moorings</span> — Quote SZ5932</span></td>
-            <td><span class="cell-none">Not available</span><span class="cell-boat">Confirmed no full-crew availability</span></td>
-          </tr>
-          <tr>
-            <td class="loc">St. Lucia</td>
-            <td><span class="cell-unknown">No quote yet</span></td>
-            <td><span class="cell-price">$17,507.88</span><span class="cell-couple">$5,835.96 / couple</span><span class="cell-boat">TM 5000 4-Cabin Club, 6 nights <span class="badge company-moorings">Moorings</span> — Quote SZ5984</span></td>
-            <td><span class="cell-none">Not available</span><span class="cell-boat">Confirmed no full-crew availability</span></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="note-box warn" style="margin-top:12px;">Grenada (SZ5932) and St. Lucia (SZ5984) each came through as a single 6-night bareboat-with-skipper quote for Jan 29 – Feb 4, 2027. Only one quote per destination was in the files reviewed — if there's a separate 5-night or 7-night version, it hasn't come through yet and isn't reflected here.</div>
+    <div class="note-box" style="margin-top:12px;">Grenada and St. Lucia have been moved to the archive at the bottom of the page.</div>
   </section>
 
   <!-- LOCATIONS -->
@@ -533,7 +559,7 @@
     </details>
 
     <!-- BVI -->
-    <details class="loc-group" open>
+    <details class="loc-group">
       <summary>British Virgin Islands (Tortola) <span class="loc-summary-meta">The Moorings — all three charter styles quoted</span></summary>
       <div class="loc-body">
 
@@ -643,24 +669,27 @@
     </details>
 
     <!-- USVI -->
-    <details class="loc-group">
+    <details class="loc-group" open>
       <summary>US Virgin Islands (St. Thomas / St. John) <span class="loc-summary-meta">Vagabonde Adventures — captain-only or fully crewed, both can sail to the BVI</span></summary>
       <div class="loc-body">
         <details class="date-group" open>
           <summary>Same weeks as Abaco option (Jan 23, 2027 or Apr 24 – May 1, 2027) <span>Vagabonde Adventures</span></summary>
           <div class="date-body">
-            <div class="quote-card">
+            <div class="quote-card spotlight-card">
               <div class="quote-head">
-                <h4>Mah Na Mah Na <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
+                <h4>Mah Na Mah Na <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span><span class="spotlight-badge">★ Look here first</span></h4>
                 <div class="quote-totals"><span class="quote-total">$17,000</span><span class="quote-couple">$5,666.67 / couple</span></div>
               </div>
-              <div class="quote-meta">Guest cabins: 3 · Crew cabin: 1 · Max guests: 6</div>
+              <div class="quote-meta">Bali 4.4, built 2023 · 43 ft LOA · 3 queen cabins, each ensuite · Max guests: 6 · Captain Zack Lanford (American) · Base port: St. Thomas, USVI (Yacht Haven Grande, with Red Hook/AYH pickup also available)</div>
               <table class="lineitems">
                 <tr><td>Yacht</td><td>$17,000</td></tr>
                 <tr><td>Taxes and fees</td><td>Included</td></tr>
                 <tr><td>Captain fee</td><td>Included</td></tr>
                 <tr><td><strong>Total</strong></td><td><strong>$17,000</strong></td></tr>
               </table>
+              <div class="note-box">Per Vagabonde's official listing, included in the base rate: fuel, mooring/dock fees, customs fees, ice, a curated ship's bar (beer, wine, select spirits, mixers), and pre-packaged snacks plus light breakfast items (coffee, juice, fruit, pastries). Excluded: the rest of the group's food and beverages, airport transfers, and shore excursions.</div>
+              <div class="note-box">Standard charter minimum is 7 nights. Shorter stays are priced off the weekly rate: 6 nights = weekly rate ÷ 7 × 6.5; 5 nights or fewer = weekly rate ÷ 6 × number of nights. The Jan 23–30 window already matches the 7-night minimum, so this only matters if the trip gets shortened.</div>
+              <div class="note-box">Sleep-aboard the night before check-in is available at 50% of the daily rate, boarding after 4:00 PM, and includes snacks, welcome cocktails, and continental breakfast the next morning (dinner ashore is on your own). Not offered during Christmas/New Year's weeks.</div>
               <div class="note-box">Pitched as an easier-logistics alternative — sails around St. Thomas &amp; St. John, no surprise fuel/mooring/ice/customs costs since they're built in, and the weekly rate can be prorated for a shorter trip. Flights into St. Thomas are described as easy if BVI ferry/flight timing doesn't line up for the group. Jack's follow-up confirms $17,000 is a starting price.</div>
             </div>
 
@@ -678,73 +707,9 @@
               <div class="note-box">Jack has been aboard One Love himself — larger than Mah Na Mah Na, decked out with water toys, and comes with a chef and all onboard provisions included. $25,000 is a starting price, not a fully itemized quote — a firm total with taxes/fees hasn't been provided yet.</div>
             </div>
 
-            <div class="note-box">Both Mah Na Mah Na and One Love can sail over to the BVI, and that's included in the pricing — but each boat has a cap on the number of USVI pickups it can do. If a BVI leg or extra pickups matter to the group, Jack asked to hear about it soon so it can be locked in.</div>
+            <div class="note-box">Both Mah Na Mah Na and One Love can sail over to the BVI, and that's included in the pricing — but Vagabonde's official listing notes BVI pickups/drop-offs are "accepted with advance approval" and subject to an annual limit on how many they can do. If a BVI leg matters for the itinerary, worth confirming and locking it in early.</div>
             <div class="note-box">Sample route: wake up in a bay, swim and have breakfast, head off for a snorkel stop or a beach, then pull into another anchorage in the late afternoon for dinner ashore or aboard. Spots Vagabonde typically works into USVI/BVI routes: Soggy Dollar, Willy T, the North Sound area (Bitter End or Saba Rock), and Foxy's. You can go ashore by dinghy daily.</div>
             <div class="note-box">BVI check-in/check-out eats up about half a day on each end of the trip for these boats — but the upside, per Jack, is skipping the ferries entirely (unlike the Moorings BVI charters, which require a separate ferry or water taxi from St. Thomas).</div>
-          </div>
-        </details>
-      </div>
-    </details>
-
-    <!-- GRENADA -->
-    <details class="loc-group">
-      <summary>Grenada <span class="loc-summary-meta">The Moorings — bareboat + skipper quoted; no full-crew availability</span></summary>
-      <div class="loc-body">
-        <details class="date-group" open>
-          <summary>Jan 29 – Feb 4, 2027 (6 nights) <span>The Moorings — Quote SZ5932</span></summary>
-          <div class="date-body">
-            <div class="quote-card">
-              <div class="quote-head">
-                <h4>Moorings 4500L – Club Class (3+ yrs) <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
-                <div class="quote-totals"><span class="quote-total">$16,237.80</span><span class="quote-couple">$5,412.60 / couple</span></div>
-              </div>
-              <div class="quote-meta">Quote ID SZ5932 · Quoted 24-Jul-26 · Boarding 29-Jan-27 18:00 · Ends 4-Feb-27 11:00 · 6 in party · Port Louis Marina, Grenada</div>
-              <table class="lineitems">
-                <tr><td>Moorings 4500L – Club (3+ y/o)</td><td>$11,948.00</td></tr>
-                <tr><td>Travel Protection Plan</td><td>$1,202.80</td></tr>
-                <tr><td>Yacht Damage Waiver</td><td>$725.00</td></tr>
-                <tr><td>Skipper</td><td>$1,200.00</td></tr>
-                <tr><td>Provisions – Skipper</td><td>$150.00</td></tr>
-                <tr><td>Blue Marine Foundation</td><td>$12.00</td></tr>
-                <tr><td>Sleep Aboard</td><td>$1,625.20</td></tr>
-                <tr><td>Discount – Comp Sleepaboard</td><td>–$625.20</td></tr>
-                <tr><td><strong>Total Quote Amount</strong></td><td><strong>$16,237.80</strong></td></tr>
-              </table>
-              <div class="note-box">Boards on the 29th at 6pm rather than the 25th like the BVI quotes — this is a different travel window (late January) than the April BVI/Abaco dates. This quote is filed under Moorings' "Bareboat" vacation type but includes a skipper and skipper provisions line, so it's functionally a bareboat-with-skipper charter, matching the BVI TA0576 style.</div>
-            </div>
-            <div class="note-box warn">Only this one 6-night quote was found for Grenada. If a 5-night or 7-night alternate quote exists, it wasn't among the files reviewed — let me know if you'd like it added once it's available.</div>
-          </div>
-        </details>
-      </div>
-    </details>
-
-    <!-- ST LUCIA -->
-    <details class="loc-group">
-      <summary>St. Lucia <span class="loc-summary-meta">The Moorings — bareboat + skipper quoted; no full-crew availability</span></summary>
-      <div class="loc-body">
-        <details class="date-group" open>
-          <summary>Jan 29 – Feb 4, 2027 (6 nights) <span>The Moorings — Quote SZ5984</span></summary>
-          <div class="date-body">
-            <div class="quote-card">
-              <div class="quote-head">
-                <h4>TM 5000, 4-Cabin Club (3+ yrs) <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
-                <div class="quote-totals"><span class="quote-total">$17,507.88</span><span class="quote-couple">$5,835.96 / couple</span></div>
-              </div>
-              <div class="quote-meta">Quote ID SZ5984 · Quoted 24-Jul-26 · Boarding 29-Jan-27 18:00 · Ends 4-Feb-27 11:00 · 6 in party · Rodney Bay, St. Lucia</div>
-              <table class="lineitems">
-                <tr><td>TM 5000 4-Cabin Club (3+ y/o)</td><td>$12,499.00</td></tr>
-                <tr><td>Yacht Damage Waiver</td><td>$850.00</td></tr>
-                <tr><td>Travel Protection Plan</td><td>$1,296.88</td></tr>
-                <tr><td>Skipper</td><td>$1,200.00</td></tr>
-                <tr><td>Provisions – Skipper</td><td>$150.00</td></tr>
-                <tr><td>Blue Marine Foundation</td><td>$12.00</td></tr>
-                <tr><td>Sleep Aboard</td><td>$1,699.32</td></tr>
-                <tr><td>Sleep Aboard Promotion</td><td>–$199.32</td></tr>
-                <tr><td><strong>Total Quote Amount</strong></td><td><strong>$17,507.88</strong></td></tr>
-              </table>
-              <div class="note-box">Larger boat than the Grenada option (4-cabin TM 5000 vs. the 4500L). Same late-January travel window as the Grenada quote. Filed as "Bareboat" but includes a skipper and skipper provisions line, so functionally bareboat-with-skipper.</div>
-            </div>
-            <div class="note-box warn">Only this one 6-night quote was found for St. Lucia. If a 5-night or 7-night alternate quote exists, it wasn't among the files reviewed — let me know if you'd like it added once it's available.</div>
           </div>
         </details>
       </div>
@@ -833,16 +798,6 @@
     </details>
 
     <details class="faq">
-      <summary>Is full-crew available in Grenada or St. Lucia?</summary>
-      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>No — The Moorings confirmed they don't currently have availability for a fully crewed charter in either Grenada or St. Lucia for the requested dates. Both destinations were quoted as bareboat-with-skipper instead.<span class="src">Source: Arelis Marin, The Moorings, 24-Jul-26; quotes SZ5932, SZ5984</span></div>
-    </details>
-
-    <details class="faq">
-      <summary>Why are the Grenada/St. Lucia quotes on different dates than the BVI/Abaco quotes?</summary>
-      <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>Grenada (SZ5932) and St. Lucia (SZ5984) were both quoted for Jan 29 – Feb 4, 2027 — a late-January window rather than the April 24–May 1 window used for the BVI and Abaco quotes. UNKNOWN whether Moorings can re-quote Grenada/St. Lucia for the April dates as well.<span class="src">Source: quotes SZ5932, SZ5984</span></div>
-    </details>
-
-    <details class="faq">
       <summary>What does fuel and mooring actually cost on the Abaco partner boats?</summary>
       <div class="faq-a"><span class="answered-by">Answered by: Vagabonde Adventures</span>For a boat around the size of the Tanna 47, most guests spend $500–$1,000 for the week on fuel, depending on how much they motor versus sail plus generator use for A/C at night. Mooring fees run about $25–$45/night, so roughly $150–$300 for the week if picking up a mooring most nights. These are estimates rather than fixed charges.<span class="src">Source: Jack Karger, Vagabonde Adventures, 30-Jul-26</span></div>
     </details>
@@ -871,28 +826,165 @@
 
     <div class="note-box" style="margin-bottom:10px;">
       <strong>Moorings information</strong><br>
-      <a href="https://www.moorings.com/yacht-charter/whats-included" target="_blank" rel="noopener">moorings.com/yacht-charter/whats-included</a><br>
-      <a href="https://www.moorings.com/yacht-charter/crewed-charter/whats-included-crewed" target="_blank" rel="noopener">moorings.com/yacht-charter/crewed-charter/whats-included-crewed</a><br>
-      <a href="https://www.moorings.com/destinations/caribbean/british-virgin-islands-yacht-charters/useful-information#tabs-navigation" target="_blank" rel="noopener">moorings.com/destinations/caribbean/british-virgin-islands-yacht-charters/useful-information</a>
+      <a href="https://www.moorings.com/yacht-charter/whats-included" target="_blank" rel="noopener">What's included on a Moorings bareboat/skippered charter</a><br>
+      <a href="https://www.moorings.com/yacht-charter/crewed-charter/whats-included-crewed" target="_blank" rel="noopener">What's included on a Moorings crewed charter</a><br>
+      <a href="https://www.moorings.com/destinations/caribbean/british-virgin-islands-yacht-charters/useful-information#tabs-navigation" target="_blank" rel="noopener">BVI useful information (Moorings)</a><br>
+      <a href="https://www.moorings.com/destinations/americas/bahamas/abacos-yacht-charters/itinerary#abacos-5-nights-flexible-short-stay-itinerary" target="_blank" rel="noopener">Abacos 5-night flexible short-stay itinerary (Moorings)</a><br>
+      <a href="https://www.moorings.com/destinations/caribbean/british-virgin-islands-yacht-charters/itinerary#itinerary-678" target="_blank" rel="noopener">BVI sample itinerary (Moorings)</a>
     </div>
 
     <div class="note-box" style="margin-bottom:10px;">
       <strong>Vagabonde Adventures</strong><br>
-      <a href="https://www.vagabondeadventures.com/the-bahamas" target="_blank" rel="noopener">vagabondeadventures.com/the-bahamas</a>
+      <a href="https://www.vagabondeadventures.com/the-bahamas" target="_blank" rel="noopener">Bahamas charters (Vagabonde Adventures)</a><br>
+      <a href="https://www.vagabondeadventures.com/bvi" target="_blank" rel="noopener">BVI charters (Vagabonde Adventures)</a><br>
+      <a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" class="spotlight-link">Mah Na Mah Na online brochure (Vagabonde Adventures)</a><span class="spotlight-badge">★ Look here first</span>
     </div>
 
     <div class="note-box" style="margin-bottom:10px;">
       <strong>Cruise Abaco</strong><br>
-      <a href="https://cruiseabaco.com/sample-itinerary/" target="_blank" rel="noopener">cruiseabaco.com/sample-itinerary</a>
+      <a href="https://cruiseabaco.com/sample-itinerary/" target="_blank" rel="noopener">Sample itinerary (Cruise Abaco)</a>
     </div>
 
     <div class="note-box">
       <strong>Ferries and private water taxis from St. Thomas to Tortola</strong><br>
-      <a href="https://www.roadtownfastferry.com/" target="_blank" rel="noopener">roadtownfastferry.com</a><br>
-      <a href="https://islandtimebvi.com/" target="_blank" rel="noopener">islandtimebvi.com</a><br>
-      <a href="https://dolphinshuttle.com/" target="_blank" rel="noopener">dolphinshuttle.com</a><br>
-      <a href="https://www.chilloutchartersbvi.com/" target="_blank" rel="noopener">chilloutchartersbvi.com</a>
+      <a href="https://www.roadtownfastferry.com/" target="_blank" rel="noopener">Road Town Fast Ferry</a><br>
+      <a href="https://islandtimebvi.com/" target="_blank" rel="noopener">Island Time BVI</a><br>
+      <a href="https://dolphinshuttle.com/" target="_blank" rel="noopener">Dolphin Shuttle &amp; Tours</a><br>
+      <a href="https://www.chilloutchartersbvi.com/" target="_blank" rel="noopener">Chillout Charters BVI</a>
     </div>
+  </section>
+
+  <!-- ARCHIVE: GRENADA & ST. LUCIA -->
+  <section class="block" id="archive">
+    <details class="loc-group">
+      <summary>Archive: Grenada &amp; St. Lucia <span class="loc-summary-meta">Flights, charter matrix, quote details &amp; FAQ — set aside, not part of the current shortlist</span></summary>
+      <div class="loc-body">
+        <p class="section-note">Grenada and St. Lucia flight and charter references, moved here to keep the main comparison focused on the active shortlist. Cost per couple = total ÷ 3 throughout.</p>
+
+        <h3 style="font-family:'Fraunces',serif;font-size:16px;color:var(--navy);margin:18px 0 8px;">Flights</h3>
+        <div class="flights-wrap">
+          <table class="flights">
+            <thead>
+              <tr><th>Route</th><th>Charter Location</th><th>Travel Window</th><th>Fare (per person, RT)</th><th>Per Couple</th><th>Airline</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="route">BOS ⇄ GND</td><td>Grenada</td><td>1/23/27 – 1/30/27</td><td class="fare">$904</td><td class="couple">$1,808</td><td class="airline">JetBlue</td></tr>
+              <tr><td class="route">BOS ⇄ GND</td><td>Grenada</td><td>4/24/27 – 4/30/27</td><td class="fare">$1,708</td><td class="couple">$3,416</td><td class="airline">JetBlue</td></tr>
+              <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>1/23/27 – 1/30/27</td><td class="fare">$1,756</td><td class="couple">$3,512</td><td class="airline">JetBlue</td></tr>
+              <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>4/24/27 – 5/1/27</td><td class="fare">$3,248</td><td class="couple">$6,496</td><td class="airline">JetBlue</td></tr>
+              <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>1/23/27 – 1/30/27</td><td class="fare">$706</td><td class="couple">$1,412</td><td class="airline">American</td></tr>
+              <tr><td class="route">BOS ⇄ UVF</td><td>St. Lucia</td><td>4/24/27 – 4/30/27</td><td class="fare">$991</td><td class="couple">$1,982</td><td class="airline">American</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="font-family:'Fraunces',serif;font-size:16px;color:var(--navy);margin:22px 0 8px;">Charter Matrix</h3>
+        <div class="matrix-wrap">
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th>Location</th>
+                <th>Bareboat (self-skippered)</th>
+                <th>Bareboat + Skipper</th>
+                <th>Full Crew</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="loc">Grenada</td>
+                <td><span class="cell-unknown">No quote yet</span></td>
+                <td><span class="cell-price">$16,237.80</span><span class="cell-couple">$5,412.60 / couple</span><span class="cell-boat">Moorings 4500L Club, 6 nights <span class="badge company-moorings">Moorings</span> — Quote SZ5932</span></td>
+                <td><span class="cell-none">Not available</span><span class="cell-boat">Confirmed no full-crew availability</span></td>
+              </tr>
+              <tr>
+                <td class="loc">St. Lucia</td>
+                <td><span class="cell-unknown">No quote yet</span></td>
+                <td><span class="cell-price">$17,507.88</span><span class="cell-couple">$5,835.96 / couple</span><span class="cell-boat">TM 5000 4-Cabin Club, 6 nights <span class="badge company-moorings">Moorings</span> — Quote SZ5984</span></td>
+                <td><span class="cell-none">Not available</span><span class="cell-boat">Confirmed no full-crew availability</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note-box warn" style="margin-top:12px;">Grenada (SZ5932) and St. Lucia (SZ5984) each came through as a single 6-night bareboat-with-skipper quote for Jan 29 – Feb 4, 2027. Only one quote per destination was in the files reviewed — if there's a separate 5-night or 7-night version, it hasn't come through yet and isn't reflected here.</div>
+
+        <h3 style="font-family:'Fraunces',serif;font-size:16px;color:var(--navy);margin:22px 0 8px;">Quote Details</h3>
+
+        <details class="loc-group">
+          <summary>Grenada <span class="loc-summary-meta">The Moorings — bareboat + skipper quoted; no full-crew availability</span></summary>
+          <div class="loc-body">
+            <details class="date-group">
+              <summary>Jan 29 – Feb 4, 2027 (6 nights) <span>The Moorings — Quote SZ5932</span></summary>
+              <div class="date-body">
+                <div class="quote-card">
+                  <div class="quote-head">
+                    <h4>Moorings 4500L – Club Class (3+ yrs) <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
+                    <div class="quote-totals"><span class="quote-total">$16,237.80</span><span class="quote-couple">$5,412.60 / couple</span></div>
+                  </div>
+                  <div class="quote-meta">Quote ID SZ5932 · Quoted 24-Jul-26 · Boarding 29-Jan-27 18:00 · Ends 4-Feb-27 11:00 · 6 in party · Port Louis Marina, Grenada</div>
+                  <table class="lineitems">
+                    <tr><td>Moorings 4500L – Club (3+ y/o)</td><td>$11,948.00</td></tr>
+                    <tr><td>Travel Protection Plan</td><td>$1,202.80</td></tr>
+                    <tr><td>Yacht Damage Waiver</td><td>$725.00</td></tr>
+                    <tr><td>Skipper</td><td>$1,200.00</td></tr>
+                    <tr><td>Provisions – Skipper</td><td>$150.00</td></tr>
+                    <tr><td>Blue Marine Foundation</td><td>$12.00</td></tr>
+                    <tr><td>Sleep Aboard</td><td>$1,625.20</td></tr>
+                    <tr><td>Discount – Comp Sleepaboard</td><td>–$625.20</td></tr>
+                    <tr><td><strong>Total Quote Amount</strong></td><td><strong>$16,237.80</strong></td></tr>
+                  </table>
+                  <div class="note-box">Boards on the 29th at 6pm rather than the 25th like the BVI quotes — this is a different travel window (late January) than the April BVI/Abaco dates. This quote is filed under Moorings' "Bareboat" vacation type but includes a skipper and skipper provisions line, so it's functionally a bareboat-with-skipper charter, matching the BVI TA0576 style.</div>
+                </div>
+                <div class="note-box warn">Only this one 6-night quote was found for Grenada. If a 5-night or 7-night alternate quote exists, it wasn't among the files reviewed — let me know if you'd like it added once it's available.</div>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <details class="loc-group">
+          <summary>St. Lucia <span class="loc-summary-meta">The Moorings — bareboat + skipper quoted; no full-crew availability</span></summary>
+          <div class="loc-body">
+            <details class="date-group">
+              <summary>Jan 29 – Feb 4, 2027 (6 nights) <span>The Moorings — Quote SZ5984</span></summary>
+              <div class="date-body">
+                <div class="quote-card">
+                  <div class="quote-head">
+                    <h4>TM 5000, 4-Cabin Club (3+ yrs) <span class="charter-type-pill pill-skipper">Bareboat + Skipper</span></h4>
+                    <div class="quote-totals"><span class="quote-total">$17,507.88</span><span class="quote-couple">$5,835.96 / couple</span></div>
+                  </div>
+                  <div class="quote-meta">Quote ID SZ5984 · Quoted 24-Jul-26 · Boarding 29-Jan-27 18:00 · Ends 4-Feb-27 11:00 · 6 in party · Rodney Bay, St. Lucia</div>
+                  <table class="lineitems">
+                    <tr><td>TM 5000 4-Cabin Club (3+ y/o)</td><td>$12,499.00</td></tr>
+                    <tr><td>Yacht Damage Waiver</td><td>$850.00</td></tr>
+                    <tr><td>Travel Protection Plan</td><td>$1,296.88</td></tr>
+                    <tr><td>Skipper</td><td>$1,200.00</td></tr>
+                    <tr><td>Provisions – Skipper</td><td>$150.00</td></tr>
+                    <tr><td>Blue Marine Foundation</td><td>$12.00</td></tr>
+                    <tr><td>Sleep Aboard</td><td>$1,699.32</td></tr>
+                    <tr><td>Sleep Aboard Promotion</td><td>–$199.32</td></tr>
+                    <tr><td><strong>Total Quote Amount</strong></td><td><strong>$17,507.88</strong></td></tr>
+                  </table>
+                  <div class="note-box">Larger boat than the Grenada option (4-cabin TM 5000 vs. the 4500L). Same late-January travel window as the Grenada quote. Filed as "Bareboat" but includes a skipper and skipper provisions line, so functionally bareboat-with-skipper.</div>
+                </div>
+                <div class="note-box warn">Only this one 6-night quote was found for St. Lucia. If a 5-night or 7-night alternate quote exists, it wasn't among the files reviewed — let me know if you'd like it added once it's available.</div>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <h3 style="font-family:'Fraunces',serif;font-size:16px;color:var(--navy);margin:22px 0 8px;">FAQ</h3>
+
+        <details class="faq">
+          <summary>Is full-crew available in Grenada or St. Lucia?</summary>
+          <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>No — The Moorings confirmed they don't currently have availability for a fully crewed charter in either Grenada or St. Lucia for the requested dates. Both destinations were quoted as bareboat-with-skipper instead.<span class="src">Source: Arelis Marin, The Moorings, 24-Jul-26; quotes SZ5932, SZ5984</span></div>
+        </details>
+
+        <details class="faq">
+          <summary>Why are the Grenada/St. Lucia quotes on different dates than the BVI/Abaco quotes?</summary>
+          <div class="faq-a"><span class="answered-by">Answered by: The Moorings</span>Grenada (SZ5932) and St. Lucia (SZ5984) were both quoted for Jan 29 – Feb 4, 2027 — a late-January window rather than the April 24–May 1 window used for the BVI and Abaco quotes. UNKNOWN whether Moorings can re-quote Grenada/St. Lucia for the April dates as well.<span class="src">Source: quotes SZ5932, SZ5984</span></div>
+        </details>
+
+      </div>
+    </details>
   </section>
 
 </main>
