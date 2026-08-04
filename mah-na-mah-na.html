@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mah Na Mah Na — USVI/BVI Itinerary, Jan 21–28, 2027</title>
+<style>
+  :root{
+    --navy:#0e2a36;
+    --navy-deep:#081a22;
+    --teal:#2c7873;
+    --sand:#efe6d3;
+    --sand-light:#faf6ec;
+    --coral:#e0723c;
+    --ink:#1c2b30;
+    --muted:#5c6e73;
+    --line:#d8cfb8;
+    --unknown:#b4534a;
+    --spotlight:#c9932a;
+    --spotlight-bg:#fdf3dc;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Public Sans","Segoe UI",Arial,sans-serif;
+    background:var(--sand-light);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  header.hero{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);
+    color:var(--sand-light);
+    padding:52px 24px 36px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:260px;height:260px;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:50%;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute;
+    right:20px; top:20px;
+    width:170px;height:170px;
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:50%;
+  }
+  .hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:12px;
+    color:var(--coral);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:"Fraunces","Georgia",serif;
+    font-size:clamp(26px,4vw,40px);
+    margin:0 0 10px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .hero-sub{max-width:600px;color:#c8d6d8;font-size:15px;}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:20px;
+    font-size:13px;color:#a9bcbf;
+  }
+  .hero-meta strong{color:var(--sand-light);font-weight:600;}
+
+  main{max-width:900px;margin:0 auto;padding:0 24px 70px;}
+  section.block{margin-top:40px;}
+  h2.section-title{
+    font-family:"Fraunces","Georgia",serif;
+    font-size:22px;font-weight:600;margin:0 0 6px;color:var(--navy);
+  }
+  p.section-note{color:var(--muted);font-size:14px;margin:0 0 18px;max-width:680px;}
+
+  /* Flight cards */
+  .flight-row{display:flex;flex-wrap:wrap;gap:14px;}
+  .flight-card{
+    flex:1 1 260px;
+    background:white;border:1px solid var(--line);border-radius:8px;
+    padding:16px 18px;
+  }
+  .flight-card.spotlight-card{
+    background:var(--spotlight-bg);
+    border-color:var(--spotlight);
+    box-shadow:0 0 0 1px var(--spotlight), 0 4px 14px rgba(201,147,42,0.18);
+  }
+  .flight-dir{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);font-weight:700;margin-bottom:4px;}
+  .flight-route{font-family:"Fraunces",serif;font-size:19px;color:var(--navy);font-weight:600;margin-bottom:6px;}
+  .flight-detail{font-size:13px;color:var(--ink);margin:2px 0;}
+  .flight-detail .lbl{color:var(--muted);}
+  .flight-price{font-weight:800;color:var(--coral);font-size:16px;margin-top:8px;}
+  .flight-points{font-size:12px;color:var(--muted);}
+  .spotlight-badge{
+    display:inline-flex;align-items:center;gap:4px;
+    font-size:10px;text-transform:uppercase;letter-spacing:.06em;font-weight:800;
+    color:#7a5a10;background:linear-gradient(135deg,#ffe9b8,#f6d488);
+    border:1px solid var(--spotlight);padding:2px 8px;border-radius:10px;
+    margin-left:6px;white-space:nowrap;
+  }
+
+  /* Timeline */
+  .timeline{position:relative;padding-left:32px;}
+  .timeline::before{
+    content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+    background:var(--line);
+  }
+  .day{position:relative;margin-bottom:22px;}
+  .day::before{
+    content:"";position:absolute;left:-32px;top:4px;width:18px;height:18px;
+    border-radius:50%;background:var(--teal);border:3px solid var(--sand-light);
+    box-shadow:0 0 0 1px var(--line);
+  }
+  .day.milestone::before{background:var(--coral);}
+  .day-card{
+    background:white;border:1px solid var(--line);border-radius:8px;
+    padding:14px 18px;
+  }
+  .day-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;}
+  .day-date{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);font-weight:700;}
+  .day-title{font-family:"Fraunces",serif;font-size:16.5px;color:var(--navy);font-weight:600;}
+  .day-pill{
+    display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.05em;
+    padding:2px 8px;border-radius:10px;font-weight:700;background:#dbe6ee;color:#26536f;
+  }
+  .day-pill.milestone-pill{background:#f0e0dc;color:#8c3f2f;}
+  .day-body{font-size:13.5px;color:var(--ink);}
+  .day-body ul{margin:6px 0 0;padding-left:18px;}
+  .day-body li{margin-bottom:3px;}
+
+  .note-box{
+    background:#f2ede0;border-left:3px solid var(--coral);
+    padding:10px 14px;font-size:13px;color:var(--ink);
+    border-radius:0 4px 4px 0;margin-top:10px;
+  }
+  .note-box.warn{border-left-color:var(--unknown);background:#f5e9e6;}
+  .note-box a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);white-space:nowrap;}
+  .note-box a:hover{color:var(--coral);border-bottom-color:var(--coral);}
+  .unk{color:var(--unknown);font-style:italic;}
+
+  footer{
+    max-width:900px;margin:0 auto;padding:20px 24px 60px;
+    color:var(--muted);font-size:12px;border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Itinerary Draft — <a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;">Mah Na Mah Na</a></div>
+    <h1>USVI → BVI Sailing Week</h1>
+    <p class="hero-sub">Captain-only charter aboard <a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;">Mah Na Mah Na</a> (Vagabonde Adventures) — fly into and out of St. Thomas, overnight at St. John before crossing to check into the BVI at West End.</p>
+    <div class="hero-meta">
+      <span><strong>Dates:</strong> Jan 21 – Jan 28, 2027 (7 nights)</span>
+      <span><strong>Boat:</strong> <a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;">Mah Na Mah Na</a>, Bali 4.4</span>
+      <span><strong>Captain:</strong> Zack Lanford</span>
+      <span><strong>Base port:</strong> Yacht Haven Grande, St. Thomas</span>
+      <span><strong>Pick-up/drop-off:</strong> Red Hook, St. Thomas (preferred)</span>
+      <span><strong>Status:</strong> Non-binding hold placed</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- FLIGHTS -->
+  <section class="block" id="flights">
+    <h2 class="section-title">Flights</h2>
+    <div class="flight-row">
+      <div class="flight-card spotlight-card">
+        <div class="flight-dir">Outbound <span class="spotlight-badge">★ Look here first</span></div>
+        <div class="flight-route">BOS → STT</div>
+        <div class="flight-detail"><span class="lbl">Date:</span> Thursday, Jan 21, 2027</div>
+        <div class="flight-detail"><span class="lbl">Departs BOS:</span> 8:00am</div>
+        <div class="flight-detail"><span class="lbl">Arrives STT:</span> 1:05pm (4h 5m nonstop)</div>
+        <div class="flight-detail"><span class="lbl">Routing:</span> Nonstop</div>
+        <div class="flight-detail"><span class="lbl">Flight:</span> JetBlue B6 807</div>
+        <div class="flight-detail"><span class="lbl">Fare class:</span> EvenMore®</div>
+        <div class="flight-price">$678 pp / $1,356 per couple</div>
+        <div class="flight-points">or 48,700 JetBlue points pp / 97,400 per couple</div>
+      </div>
+      <div class="flight-card">
+        <div class="flight-dir">Return</div>
+        <div class="flight-route">STT → BOS</div>
+        <div class="flight-detail"><span class="lbl">Date:</span> Thursday, Jan 28, 2027</div>
+        <div class="flight-detail"><span class="lbl">Departs STT:</span> 2:00pm</div>
+        <div class="flight-detail"><span class="lbl">Arrives BOS:</span> 6:49pm (4h 58m total)</div>
+        <div class="flight-detail"><span class="lbl">Routing:</span> 1 stop — SJU (51m layover)</div>
+        <div class="flight-detail"><span class="lbl">Flight:</span> JetBlue B6 808</div>
+        <div class="flight-detail"><span class="lbl">Fare class:</span> EvenMore®</div>
+        <div class="flight-price">Included in $678/$1,356 round-trip fare above</div>
+      </div>
+    </div>
+    <div class="note-box">Both legs are confirmed: outbound is nonstop (B6 807, landing 1:05pm), return has a 51-minute connection through SJU (B6 808, departing STT 2:00pm). The 2:00pm STT departure gives a relaxed morning to disembark and clean up before heading to the airport — no early wake-up needed on Day 8.</div>
+  </section>
+
+  <!-- ITINERARY -->
+  <section class="block" id="itinerary">
+    <h2 class="section-title">Day-by-Day Plan</h2>
+    <p class="section-note">A framework to confirm with Captain Zack — actual anchorages and pacing are normally worked out with him once aboard, based on weather, crowds, and what the group wants to do.</p>
+    <div class="note-box">Per Vagabonde's official listing, <a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;">Mah Na Mah Na</a>'s home base is Yacht Haven Grande (YHG), St. Thomas, but Red Hook is the confirmed preferred pick-up/drop-off location for guests (American Yacht Harbor is also available as an alternate). The plan below uses Red Hook throughout.</div>
+
+    <div class="timeline">
+
+      <div class="day milestone">
+        <div class="day-card">
+          <div class="day-head">
+            <span class="day-date">Day 1 — Thu, Jan 21, 2027</span>
+            <span class="day-pill milestone-pill">Arrival &amp; Boarding</span>
+          </div>
+          <div class="day-title">Fly into St. Thomas, board <a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;">Mah Na Mah Na</a></div>
+          <div class="day-body">
+            <ul>
+              <li>Land at STT 1:05pm (JetBlue B6 807, nonstop from BOS)</li>
+              <li>Arrange ground transportation from the airport to Red Hook, St. Thomas — Vagabonde's confirmed preferred pick-up/drop-off location; <span class="unk">specific transport method TBD (taxi, private car, or Vagabonde-arranged pickup)</span></li>
+              <li>Check into <a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;">Mah Na Mah Na</a> at Red Hook</li>
+              <li>Provision for about an hour (groceries, ice, last-minute supplies)</li>
+              <li>Set sail for St. John for the first overnight</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day milestone">
+        <div class="day-card">
+          <div class="day-head">
+            <span class="day-date">Night 1 — Thu, Jan 21</span>
+            <span class="day-pill milestone-pill">Overnight</span>
+          </div>
+          <div class="day-title">Overnight at St. John, USVI</div>
+          <div class="day-body">
+            <ul>
+              <li>Anchor or moor off St. John for the night (specific bay <span class="unk">TBD with Captain Zack</span> — Cruz Bay and Coral Bay are the usual options)</li>
+              <li>First evening aboard — settle in, welcome dinner</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day milestone">
+        <div class="day-card">
+          <div class="day-head">
+            <span class="day-date">Day 2 — Fri, Jan 22, 2027</span>
+            <span class="day-pill milestone-pill">BVI Check-In</span>
+          </div>
+          <div class="day-title">Sail to West End, Tortola — check into the BVI</div>
+          <div class="day-body">
+            <ul>
+              <li>Depart St. John and sail across to West End (Soper's Hole), Tortola</li>
+              <li>Clear BVI Customs &amp; Immigration at West End — passports required for all 6 guests</li>
+              <li>Once cleared, free to explore BVI waters for the rest of the charter</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-card">
+          <div class="day-head">
+            <span class="day-date">Days 3–6 — Sat, Jan 23 – Tue, Jan 26, 2027</span>
+            <span class="day-pill">BVI Cruising</span>
+          </div>
+          <div class="day-title">Island-hop the BVI</div>
+          <div class="day-body">
+            Route and pacing to be worked out day-to-day with Captain Zack once aboard. Spots Vagabonde has mentioned working into USVI/BVI routes:
+            <ul>
+              <li>Soggy Dollar Bar (Jost Van Dyke)</li>
+              <li>The Willy T (Norman Island)</li>
+              <li>North Sound area — Bitter End or Saba Rock (Virgin Gorda)</li>
+              <li>Foxy's (Jost Van Dyke)</li>
+            </ul>
+            <div class="note-box">These are suggestions from Vagabonde's earlier notes, not a fixed itinerary — the exact order and additional stops (e.g. The Baths, Cane Garden Bay) would be confirmed with Captain Zack based on weather and how crowded each anchorage is.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-card">
+          <div class="day-head">
+            <span class="day-date">Day 7 — Wed, Jan 27, 2027</span>
+            <span class="day-pill">Return Crossing</span>
+          </div>
+          <div class="day-title">Check out of the BVI, sail back to St. Thomas</div>
+          <div class="day-body">
+            <ul>
+              <li>Clear BVI Customs on the way out (likely West End again, though exact checkpoint <span class="unk">TBD</span>)</li>
+              <li>Sail back to St. Thomas and spend the last night moored/anchored there — no rush the next morning, since the return flight isn't until 2:00pm</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="day milestone">
+        <div class="day-card">
+          <div class="day-head">
+            <span class="day-date">Day 8 — Thu, Jan 28, 2027</span>
+            <span class="day-pill milestone-pill">Disembark &amp; Fly Home</span>
+          </div>
+          <div class="day-title">Disembark at St. Thomas, fly home</div>
+          <div class="day-body">
+            <ul>
+              <li>Disembark <a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;">Mah Na Mah Na</a> — standard disembarkation time not specified; <span class="unk">confirm with Captain Zack</span></li>
+              <li>Arrange ground transportation from Red Hook (confirmed pick-up/drop-off point) to STT airport — <span class="unk">specific transport method TBD</span></li>
+              <li>Depart STT for BOS at 2:00pm (JetBlue B6 808, 1 stop via SJU, arrives BOS 6:49pm)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="note-box warn">Both flights are now locked in: land 1:05pm on the 21st, depart 2:00pm on the 28th. The plan now has the boat back at St. Thomas for both the last night (Day 7) and the following morning (Day 8), so there's a comfortable buffer before the 2:00pm flight. Still worth confirming with Captain Zack/Vagabonde: exact boarding time on Day 1 (to plan the airport-to-Red Hook transfer), and ground transportation options at both ends.</div>
+  </section>
+
+  <!-- COSTS -->
+  <section class="block" id="costs">
+    <h2 class="section-title">What's Included &amp; What's Not</h2>
+    <p class="section-note"><a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;">Mah Na Mah Na</a> is a captain-only charter, so the $17,000 rate bundles a lot in — it doesn't break out into separate line items the way a bareboat quote does.</p>
+
+    <div class="flight-row">
+      <div class="flight-card">
+        <div class="flight-dir">Included in $17,000</div>
+        <ul style="margin:6px 0 0;padding-left:18px;font-size:13px;">
+          <li>Yacht + captain fee</li>
+          <li>Fuel</li>
+          <li>Ice</li>
+          <li>Mooring &amp; dock fees</li>
+          <li>Customs fees</li>
+          <li>Ship's bar</li>
+          <li>Breakfast items</li>
+        </ul>
+      </div>
+      <div class="flight-card">
+        <div class="flight-dir" style="color:var(--unknown);">Not included</div>
+        <ul style="margin:6px 0 0;padding-left:18px;font-size:13px;">
+          <li>Main meals/provisions beyond the light breakfast — budget roughly $200–$250 per person for the week</li>
+          <li>Feeding the captain if the group dines out (invite along, or give cash for their own meal)</li>
+          <li>Crew gratuity — 10–20% of the yacht price, roughly $1,700–$3,400 for the week</li>
+          <li>Airport transfers and any self-booked shore excursions</li>
+          <li>Travel insurance — purchased separately, per couple, through Rick Bagnall at Risk Strategies</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note-box">Provisioning happens on Day 1 at Red Hook (about an hour, per the plan above) — worth deciding ahead of time how much cooking-aboard vs. eating-ashore the group wants, since that swings the $200–$250pp estimate quite a bit.</div>
+    <div class="note-box"><strong>Travel insurance:</strong> Vagabonde recommends purchasing adequate travel insurance and works with Rick Bagnall at Brown &amp; Brown (Risk Strategies), who specializes in yacht charter insurance — p: 860-391-7161, Rick.Bagnall@bbrown.com. A "Cancel For Any Reason" (CFAR) policy generally needs to be purchased within 14–21 days of the first payment/deposit. The group can use its own insurance instead, as long as it's adequate for the trip. <a href="docs/R2_2026_New__Travel_Insurance_Questionnaire_004_011.pdf" target="_blank" rel="noopener">Travel Insurance Questionnaire (PDF)</a></div>
+    <div class="note-box"><strong>Payment methods:</strong> Credit card is accepted but carries a 3.8% processing fee, so Jake at Above Deck much prefers ACH/wire — most clients pay that way. It's fine to split it, e.g. some couples pay by ACH/wire and others by credit card. For gratuity specifically, cash or Venmo is absolutely fine (also accepted: PayPal, Zelle, Apple Pay, per Vagabonde's listing).</div>
+    <div class="note-box"><strong>Deposit schedule:</strong> Since the trip is about 6 months out, Jake requires a 50% deposit now, with the remaining 50% due in December.</div>
+    <div class="note-box"><strong>Contract:</strong> Jake uses Charter Yacht Brokers Association (CYBA) contracts — the industry standard across the Caribbean, covering payment terms, cancellation policies, and yacht conditions. The version he sends first is a <strong>DRAFT — don't sign it</strong>; review it and flag any questions first. <a href="docs/DRAFT_CYBA_Contract__Mah_Na_Mah_Na__Rastetter.pdf" target="_blank" rel="noopener">Draft CYBA Contract (PDF)</a></div>
+    <div class="note-box"><strong>Signing process:</strong> Once the draft is reviewed and everyone's ready to move forward, Jake sends a separate email from "ZohoSign" for signing online — check junk/spam if it doesn't show up, since these automated emails sometimes get filtered. After the group signs, Jake sends it to the yacht owner for their signature. The charter is officially confirmed once (1) all parties have signed and (2) the deposit has been received in Above Deck's client escrow account.</div>
+    <div class="note-box"><strong>Payment instructions:</strong> Full wire/payment details are on pages 2 &amp; 3 of the invoice Jake sends — any questions on process, wire details, or timing go straight to him. <a href="docs/INV_AD701__Corey_Rastetter__Mah_Na_Mah_Na.pdf" target="_blank" rel="noopener">Invoice AD701 (PDF)</a></div>
+    <div class="note-box"><strong>Contract &amp; payment contact:</strong> Jake at Above Deck handles contracts and funds for Vagabonde's Virgin Islands partner boats. He's a former captain who worked primarily in the Virgin Islands and Croatia.</div>
+    <div class="note-box warn"><a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;">Mah Na Mah Na</a> currently has a <strong>non-binding hold</strong> for these dates — Vagabonde is giving the group time to pull the funds together before it needs to be confirmed.</div>
+  </section>
+
+</main>
+
+<footer>
+  Draft itinerary for the <a href="https://cyaeb.com/htt6bYoDL9/crn/69f394ad3c03330912dce972" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;">Mah Na Mah Na</a> (Vagabonde Adventures) USVI/BVI charter, Jan 21–28, 2027. Flight times, exact anchorages, and BVI check-out logistics are marked UNKNOWN where not yet confirmed — fill in as details firm up. Companion document: charter-comparison.html. Linked PDFs (draft contract, invoice, travel insurance questionnaire) expect a sibling <code>docs/</code> folder alongside this file.
+</footer>
+
+</body>
+</html>
